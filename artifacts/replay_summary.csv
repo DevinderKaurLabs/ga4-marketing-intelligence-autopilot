@@ -1,0 +1,13 @@
+week_start,revenue,revenue_change_pct,sessions,conversion_rate,critical,warning,watch,upside_signals,events,headline
+2020-11-09,23694,8.6,22508,1.52,7,0,2,13,,CRITICAL RISK: Revenue -45.3% vs previous week [country: Canada]
+2020-11-16,38086,60.7,25914,1.44,0,0,0,19,,MAJOR UPSIDE: Revenue +60.7% vs previous week
+2020-11-23,47973,26.0,27780,1.85,1,0,0,17,"2020-11-26: US Thanksgiving, 2020-11-27: Black Friday",CRITICAL RISK: Cart to checkout rate -47.8% vs previous week
+2020-11-30,43042,-10.3,31088,1.9,1,0,5,12,2020-11-30: Cyber Monday,CRITICAL RISK: Cart to checkout rate -47.3% vs previous week
+2020-12-07,59721,38.8,38729,1.99,0,1,1,12,,MAJOR UPSIDE: Revenue +38.8% vs previous week
+2020-12-14,47276,-20.8,33411,1.64,0,0,8,6,,MAJOR UPSIDE: Transactions +32.7% vs previous week [campaign: (direct)]
+2020-12-21,14716,-68.9,22083,1.06,9,2,0,0,"2020-12-24: Christmas Eve, 2020-12-25: Christmas Day, 2020-12-26: Boxing Day",CRITICAL RISK: Revenue -68.9% vs previous week
+2020-12-28,10368,-29.5,20444,0.68,6,6,6,4,"2020-12-31: New Year's Eve, 2021-01-01: New Year's Day",CRITICAL RISK: Conversion rate -36.0% vs previous week
+2021-01-04,9402,-9.3,29029,0.56,0,11,7,8,,"WARNING: Traffic up, revenue not following -9.3% vs previous week"
+2021-01-11,13150,39.9,27707,0.82,0,0,0,25,,UPSIDE: Transactions +48.8% vs previous week (returning to normal after an unusual week)
+2021-01-18,26966,105.1,27478,1.36,0,0,4,25,,MAJOR UPSIDE: Revenue per session +106.8% vs previous week - check tracking before acting
+2021-01-25,5178,-80.8,26342,1.18,4,2,5,7,,CRITICAL RISK: Average order value -77.3% vs previous week - check tracking before acting

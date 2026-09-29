@@ -1,0 +1,937 @@
+{
+  "run": {
+    "week_start": "2021-01-25",
+    "week_end": "2021-01-31",
+    "previous_week_start": "2021-01-18",
+    "data_source": "bigquery-public-data.ga4_obfuscated_sample_ecommerce",
+    "generated_at": "2026-09-29T06:02:48+00:00",
+    "note": "Public obfuscated GA4 sample (Google Merchandise Store). Architecture demonstration."
+  },
+  "calendar_events": {
+    "this_week": [],
+    "previous_week": []
+  },
+  "kpis": {
+    "revenue": {
+      "current": 5178,
+      "previous": 26966,
+      "change_pct": -80.8
+    },
+    "transactions": {
+      "current": 338,
+      "previous": 400,
+      "change_pct": -15.5
+    },
+    "sessions": {
+      "current": 26342,
+      "previous": 27478,
+      "change_pct": -4.1
+    },
+    "users": {
+      "current": 21590,
+      "previous": 22647,
+      "change_pct": -4.7
+    },
+    "new_users": {
+      "current": 19265,
+      "previous": 20484,
+      "change_pct": -6
+    },
+    "conversion_rate": {
+      "current": 1.18,
+      "previous": 1.36,
+      "change_pct": -13.8,
+      "change_points": -0.19
+    },
+    "aov": {
+      "current": 15.32,
+      "previous": 67.42,
+      "change_pct": -77.3
+    },
+    "revenue_per_session": {
+      "current": 0.2,
+      "previous": 0.98,
+      "change_pct": -80
+    },
+    "engagement_rate": {
+      "current": 93.11,
+      "previous": 93.69,
+      "change_pct": -0.6,
+      "change_points": -0.58
+    },
+    "new_user_share": {
+      "current": 89.23,
+      "previous": 90.45,
+      "change_pct": -1.3,
+      "change_points": -1.22
+    }
+  },
+  "funnel": {
+    "steps": {
+      "Product view -> add to cart": {
+        "current": 17.59,
+        "previous": 18.63,
+        "change_pct": -5.6,
+        "change_points": -1.05
+      },
+      "Add to cart -> checkout": {
+        "current": 53.31,
+        "previous": 56.62,
+        "change_pct": -5.9,
+        "change_points": -3.31
+      },
+      "Checkout -> purchase": {
+        "current": 53.45,
+        "previous": 54.82,
+        "change_pct": -2.5,
+        "change_points": -1.38
+      }
+    },
+    "biggest_leak": {
+      "step": "Add to cart -> checkout",
+      "change_pct": -5.9
+    }
+  },
+  "anomalies": {
+    "counts": {
+      "risks": {
+        "watch": 5,
+        "critical": 4,
+        "warning": 2
+      },
+      "opportunities": {
+        "watch": 4,
+        "critical": 3
+      }
+    },
+    "risks": [
+      {
+        "severity": "critical",
+        "rule": "large_change",
+        "dimension": "total",
+        "dimension_value": "All traffic",
+        "metric": "aov",
+        "metric_label": "Average order value",
+        "current_value": 15.32,
+        "previous_value": 67.42,
+        "change_pct": -77.3,
+        "change_abs": -52.1,
+        "z_score": -6.28,
+        "segment_revenue_delta": -21788,
+        "total_change_pct": -77.3,
+        "segment_share_pct": 100,
+        "check_tracking": true
+      },
+      {
+        "severity": "critical",
+        "rule": "large_change",
+        "dimension": "channel",
+        "dimension_value": "<Other> / referral",
+        "metric": "users",
+        "metric_label": "Users",
+        "current_value": 1297,
+        "previous_value": 1815,
+        "change_pct": -28.5,
+        "change_abs": -518,
+        "z_score": -2.22,
+        "segment_revenue_delta": -3204,
+        "total_change_pct": -4.7,
+        "gap_vs_total_pts": -23.9,
+        "segment_share_pct": 6.9
+      },
+      {
+        "severity": "critical",
+        "rule": "large_change",
+        "dimension": "campaign",
+        "dimension_value": "(direct)",
+        "metric": "revenue_per_session",
+        "metric_label": "Revenue per session",
+        "current_value": 0,
+        "previous_value": 0.28,
+        "change_pct": -100,
+        "change_abs": -0.28,
+        "z_score": -2.97,
+        "segment_revenue_delta": -1033,
+        "total_change_pct": -80,
+        "gap_vs_total_pts": -20,
+        "segment_share_pct": 13.6
+      },
+      {
+        "severity": "critical",
+        "rule": "large_change",
+        "dimension": "channel",
+        "dimension_value": "(direct) / (none)",
+        "metric": "revenue_per_session",
+        "metric_label": "Revenue per session",
+        "current_value": 0,
+        "previous_value": 0.28,
+        "change_pct": -100,
+        "change_abs": -0.28,
+        "z_score": -2.97,
+        "segment_revenue_delta": -1033,
+        "total_change_pct": -80,
+        "gap_vs_total_pts": -20,
+        "segment_share_pct": 13.6
+      },
+      {
+        "severity": "warning",
+        "rule": "notable_change",
+        "dimension": "country",
+        "dimension_value": "Canada",
+        "metric": "view_to_cart_rate",
+        "metric_label": "Product view to cart rate",
+        "current_value": 16.85,
+        "previous_value": 22.11,
+        "change_pct": -23.8,
+        "change_abs": -5.26,
+        "z_score": -6.26,
+        "segment_revenue_delta": -3600,
+        "total_change_pct": -5.6,
+        "gap_vs_total_pts": -18.2,
+        "segment_share_pct": 7.5
+      },
+      {
+        "severity": "warning",
+        "rule": "notable_change",
+        "dimension": "country",
+        "dimension_value": "India",
+        "metric": "view_to_cart_rate",
+        "metric_label": "Product view to cart rate",
+        "current_value": 13.29,
+        "previous_value": 16.91,
+        "change_pct": -21.4,
+        "change_abs": -3.63,
+        "z_score": -3.3,
+        "segment_revenue_delta": -1939,
+        "total_change_pct": -5.6,
+        "gap_vs_total_pts": -15.8,
+        "segment_share_pct": 9.4
+      },
+      {
+        "severity": "watch",
+        "rule": "reverting_to_baseline",
+        "dimension": "total",
+        "dimension_value": "All traffic",
+        "metric": "revenue",
+        "metric_label": "Revenue",
+        "current_value": 5178,
+        "previous_value": 26966,
+        "change_pct": -80.8,
+        "change_abs": -21788,
+        "z_score": -1.2,
+        "segment_revenue_delta": -21788,
+        "total_change_pct": -80.8,
+        "segment_share_pct": 100
+      },
+      {
+        "severity": "watch",
+        "rule": "reverting_to_baseline",
+        "dimension": "total",
+        "dimension_value": "All traffic",
+        "metric": "revenue_per_session",
+        "metric_label": "Revenue per session",
+        "current_value": 0.2,
+        "previous_value": 0.98,
+        "change_pct": -80,
+        "change_abs": -0.78,
+        "z_score": -1.32,
+        "segment_revenue_delta": -21788,
+        "total_change_pct": -80,
+        "segment_share_pct": 100,
+        "check_tracking": true
+      }
+    ],
+    "opportunities": [
+      {
+        "severity": "critical",
+        "rule": "large_change",
+        "dimension": "channel",
+        "dimension_value": "<Other> / referral",
+        "metric": "conversion_rate",
+        "metric_label": "Conversion rate",
+        "current_value": 4.28,
+        "previous_value": 3.29,
+        "change_pct": 30.1,
+        "change_abs": 0.99,
+        "z_score": 2.67,
+        "segment_revenue_delta": -3204,
+        "total_change_pct": -13.8,
+        "gap_vs_total_pts": 43.8,
+        "segment_share_pct": 6.9
+      },
+      {
+        "severity": "critical",
+        "rule": "large_change",
+        "dimension": "campaign",
+        "dimension_value": "(direct)",
+        "metric": "conversion_rate",
+        "metric_label": "Conversion rate",
+        "current_value": 0.62,
+        "previous_value": 0.4,
+        "change_pct": 54.1,
+        "change_abs": 0.22,
+        "z_score": 3.71,
+        "segment_revenue_delta": -1033,
+        "total_change_pct": -13.8,
+        "gap_vs_total_pts": 67.9,
+        "segment_share_pct": 13.6
+      },
+      {
+        "severity": "critical",
+        "rule": "large_change",
+        "dimension": "channel",
+        "dimension_value": "(direct) / (none)",
+        "metric": "conversion_rate",
+        "metric_label": "Conversion rate",
+        "current_value": 0.62,
+        "previous_value": 0.4,
+        "change_pct": 54.1,
+        "change_abs": 0.22,
+        "z_score": 3.71,
+        "segment_revenue_delta": -1033,
+        "total_change_pct": -13.8,
+        "gap_vs_total_pts": 67.9,
+        "segment_share_pct": 13.6
+      },
+      {
+        "severity": "watch",
+        "rule": "moderate_change",
+        "dimension": "campaign",
+        "dimension_value": "(organic)",
+        "metric": "sessions",
+        "metric_label": "Sessions",
+        "current_value": 13640,
+        "previous_value": 12036,
+        "change_pct": 13.3,
+        "change_abs": 1604,
+        "z_score": 1.86,
+        "segment_revenue_delta": -6106,
+        "total_change_pct": -4.1,
+        "gap_vs_total_pts": 17.5,
+        "segment_share_pct": 51.8
+      },
+      {
+        "severity": "watch",
+        "rule": "moderate_change",
+        "dimension": "campaign",
+        "dimension_value": "(organic)",
+        "metric": "users",
+        "metric_label": "Users",
+        "current_value": 12644,
+        "previous_value": 11351,
+        "change_pct": 11.4,
+        "change_abs": 1293,
+        "z_score": 1.74,
+        "segment_revenue_delta": -6106,
+        "total_change_pct": -4.7,
+        "gap_vs_total_pts": 16.1,
+        "segment_share_pct": 51.8
+      }
+    ]
+  },
+  "channels": [
+    {
+      "name": "shop.googlemerchandisestore.com / referral",
+      "revenue": 2608,
+      "revenue_change_pct": -77.1,
+      "sessions": 4413,
+      "sessions_change_pct": 2.8,
+      "transactions": 135,
+      "transactions_change_pct": -18.7,
+      "conversion_rate": 2.88,
+      "conversion_rate_change_pct": -17.1
+    },
+    {
+      "name": "google / organic",
+      "revenue": 1278,
+      "revenue_change_pct": -82,
+      "sessions": 12892,
+      "sessions_change_pct": 14.2,
+      "transactions": 105,
+      "transactions_change_pct": 6.1,
+      "conversion_rate": 0.67,
+      "conversion_rate_change_pct": -21.5
+    },
+    {
+      "name": "<Other> / referral",
+      "revenue": 1070,
+      "revenue_change_pct": -75,
+      "sessions": 1379,
+      "sessions_change_pct": -26.8,
+      "transactions": 60,
+      "transactions_change_pct": -9.1,
+      "conversion_rate": 4.28,
+      "conversion_rate_change_pct": 30.1
+    },
+    {
+      "name": "Newsletter_January_2021 / email",
+      "revenue": 78,
+      "revenue_change_pct": null,
+      "sessions": 106,
+      "sessions_change_pct": null,
+      "transactions": 3,
+      "transactions_change_pct": null,
+      "conversion_rate": 2.83,
+      "conversion_rate_change_pct": null
+    },
+    {
+      "name": "sites.google.com / referral",
+      "revenue": 48,
+      "revenue_change_pct": null,
+      "sessions": 114,
+      "sessions_change_pct": 225.7,
+      "transactions": 4,
+      "transactions_change_pct": null,
+      "conversion_rate": 2.63,
+      "conversion_rate_change_pct": null
+    },
+    {
+      "name": "(data deleted) / (data deleted)",
+      "revenue": 45,
+      "revenue_change_pct": -93.7,
+      "sessions": 555,
+      "sessions_change_pct": -25.6,
+      "transactions": 6,
+      "transactions_change_pct": -40,
+      "conversion_rate": 1.08,
+      "conversion_rate_change_pct": -19.4
+    },
+    {
+      "name": "perksatwork.com / referral",
+      "revenue": 38,
+      "revenue_change_pct": -58.2,
+      "sessions": 104,
+      "sessions_change_pct": 153.7,
+      "transactions": 1,
+      "transactions_change_pct": -50,
+      "conversion_rate": 0.96,
+      "conversion_rate_change_pct": -80.3
+    },
+    {
+      "name": "bing / organic",
+      "revenue": 13,
+      "revenue_change_pct": -89.6,
+      "sessions": 47,
+      "sessions_change_pct": 2.2,
+      "transactions": 1,
+      "transactions_change_pct": -66.7,
+      "conversion_rate": 2.13,
+      "conversion_rate_change_pct": -67.4
+    }
+  ],
+  "devices": [
+    {
+      "name": "desktop",
+      "revenue": 2771,
+      "revenue_change_pct": -81.4,
+      "sessions": 15346,
+      "sessions_change_pct": -4,
+      "transactions": 165,
+      "transactions_change_pct": -29.5,
+      "conversion_rate": 1.02,
+      "conversion_rate_change_pct": -23.9
+    },
+    {
+      "name": "mobile",
+      "revenue": 2275,
+      "revenue_change_pct": -80,
+      "sessions": 10408,
+      "sessions_change_pct": -4.4,
+      "transactions": 163,
+      "transactions_change_pct": 3.8,
+      "conversion_rate": 1.37,
+      "conversion_rate_change_pct": -0.9
+    },
+    {
+      "name": "tablet",
+      "revenue": 132,
+      "revenue_change_pct": -80.4,
+      "sessions": 588,
+      "sessions_change_pct": -2,
+      "transactions": 10,
+      "transactions_change_pct": 11.1,
+      "conversion_rate": 1.7,
+      "conversion_rate_change_pct": 13.4
+    }
+  ],
+  "countries": [
+    {
+      "name": "United States",
+      "revenue": 2286,
+      "revenue_change_pct": -75.9,
+      "sessions": 11666,
+      "sessions_change_pct": -3.5,
+      "transactions": 148,
+      "transactions_change_pct": -6.9,
+      "conversion_rate": 1.13,
+      "conversion_rate_change_pct": -12.3
+    },
+    {
+      "name": "India",
+      "revenue": 352,
+      "revenue_change_pct": -84.6,
+      "sessions": 2443,
+      "sessions_change_pct": -5.5,
+      "transactions": 24,
+      "transactions_change_pct": -11.1,
+      "conversion_rate": 0.9,
+      "conversion_rate_change_pct": -10.4
+    },
+    {
+      "name": "Canada",
+      "revenue": 317,
+      "revenue_change_pct": -91.9,
+      "sessions": 1930,
+      "sessions_change_pct": -6.8,
+      "transactions": 25,
+      "transactions_change_pct": -30.6,
+      "conversion_rate": 1.14,
+      "conversion_rate_change_pct": -23.8
+    },
+    {
+      "name": "United Kingdom",
+      "revenue": 91,
+      "revenue_change_pct": -89.9,
+      "sessions": 779,
+      "sessions_change_pct": -9.5,
+      "transactions": 5,
+      "transactions_change_pct": -54.5,
+      "conversion_rate": 0.51,
+      "conversion_rate_change_pct": -59.8
+    },
+    {
+      "name": "France",
+      "revenue": 302,
+      "revenue_change_pct": -64.9,
+      "sessions": 518,
+      "sessions_change_pct": -3.5,
+      "transactions": 6,
+      "transactions_change_pct": -25,
+      "conversion_rate": 0.77,
+      "conversion_rate_change_pct": -48.2
+    },
+    {
+      "name": "Spain",
+      "revenue": 74,
+      "revenue_change_pct": -91.2,
+      "sessions": 498,
+      "sessions_change_pct": -9,
+      "transactions": 10,
+      "transactions_change_pct": -9.1,
+      "conversion_rate": 1.81,
+      "conversion_rate_change_pct": 23.6
+    },
+    {
+      "name": "China",
+      "revenue": 22,
+      "revenue_change_pct": -95.4,
+      "sessions": 462,
+      "sessions_change_pct": -1.1,
+      "transactions": 6,
+      "transactions_change_pct": -57.1,
+      "conversion_rate": 1.3,
+      "conversion_rate_change_pct": 1.1
+    },
+    {
+      "name": "Taiwan",
+      "revenue": 296,
+      "revenue_change_pct": -52.2,
+      "sessions": 444,
+      "sessions_change_pct": -10.3,
+      "transactions": 9,
+      "transactions_change_pct": 0,
+      "conversion_rate": 2.03,
+      "conversion_rate_change_pct": 25.4
+    }
+  ],
+  "campaigns": [
+    {
+      "name": "(organic)",
+      "revenue": 1291,
+      "revenue_change_pct": -82.5,
+      "sessions": 13640,
+      "sessions_change_pct": 13.3,
+      "transactions": 106,
+      "transactions_change_pct": -1.9,
+      "conversion_rate": 0.65,
+      "conversion_rate_change_pct": -25.3
+    },
+    {
+      "name": "(referral)",
+      "revenue": 3764,
+      "revenue_change_pct": -76.8,
+      "sessions": 8131,
+      "sessions_change_pct": 8.5,
+      "transactions": 209,
+      "transactions_change_pct": -15,
+      "conversion_rate": 2.45,
+      "conversion_rate_change_pct": -18.5
+    },
+    {
+      "name": "(direct)",
+      "revenue": 0,
+      "revenue_change_pct": -100,
+      "sessions": 1933,
+      "sessions_change_pct": -48.1,
+      "transactions": 12,
+      "transactions_change_pct": -20,
+      "conversion_rate": 0.62,
+      "conversion_rate_change_pct": 54.1
+    },
+    {
+      "name": "<Other>",
+      "revenue": 0,
+      "revenue_change_pct": -100,
+      "sessions": 1539,
+      "sessions_change_pct": -52.9,
+      "transactions": 2,
+      "transactions_change_pct": -90.5,
+      "conversion_rate": 0.13,
+      "conversion_rate_change_pct": -79.8
+    },
+    {
+      "name": "(data deleted)",
+      "revenue": 45,
+      "revenue_change_pct": -93.7,
+      "sessions": 553,
+      "sessions_change_pct": -25.3,
+      "transactions": 6,
+      "transactions_change_pct": -40,
+      "conversion_rate": 1.08,
+      "conversion_rate_change_pct": -19.7
+    },
+    {
+      "name": "Data Share Promo",
+      "revenue": 0,
+      "revenue_change_pct": null,
+      "sessions": 439,
+      "sessions_change_pct": 104.2,
+      "transactions": 0,
+      "transactions_change_pct": null,
+      "conversion_rate": 0,
+      "conversion_rate_change_pct": null
+    }
+  ],
+  "customers": {
+    "this_week": {
+      "purchasers": {
+        "current": 306,
+        "previous": 367,
+        "change_pct": -16.6
+      },
+      "orders": {
+        "current": 343,
+        "previous": 395,
+        "change_pct": -13.2
+      },
+      "revenue": {
+        "current": 5546,
+        "previous": 26598,
+        "change_pct": -79.1
+      },
+      "new_purchasers": {
+        "current": 275,
+        "previous": 347,
+        "change_pct": -20.7
+      },
+      "returning_purchasers": {
+        "current": 31,
+        "previous": 20,
+        "change_pct": 55
+      },
+      "revenue_from_new": {
+        "current": 4745,
+        "previous": 25587,
+        "change_pct": -81.5
+      },
+      "revenue_from_returning": {
+        "current": 801,
+        "previous": 1011,
+        "change_pct": -20.8
+      },
+      "returning_revenue_share_pct": {
+        "current": 14.44,
+        "previous": 3.8,
+        "change_pct": 280,
+        "change_points": 10.64
+      }
+    },
+    "rfm_high_value_threshold": 96,
+    "rfm_segments": [
+      {
+        "segment": "champions",
+        "description": "Champions: repeat buyers, recent, high spend",
+        "customers": 64,
+        "customers_previous_week": 67,
+        "customers_change": -3,
+        "revenue_to_date": 12065,
+        "avg_spend": 188.52,
+        "avg_recency_days": 14.3
+      },
+      {
+        "segment": "loyal",
+        "description": "Loyal: repeat buyers, active in last 60 days",
+        "customers": 373,
+        "customers_previous_week": 389,
+        "customers_change": -16,
+        "revenue_to_date": 60571,
+        "avg_spend": 162.39,
+        "avg_recency_days": 40.5
+      },
+      {
+        "segment": "at_risk_high_value",
+        "description": "At-risk high value: high spend, no purchase for 45+ days",
+        "customers": 668,
+        "customers_previous_week": 470,
+        "customers_change": 198,
+        "revenue_to_date": 133313,
+        "avg_spend": 199.57,
+        "avg_recency_days": 65.6
+      },
+      {
+        "segment": "new_high_value",
+        "description": "New high value: first order in last 30 days, high spend",
+        "customers": 136,
+        "customers_previous_week": 130,
+        "customers_change": 6,
+        "revenue_to_date": 21587,
+        "avg_spend": 158.73,
+        "avg_recency_days": 13.4
+      },
+      {
+        "segment": "new",
+        "description": "New: first order in last 30 days",
+        "customers": 797,
+        "customers_previous_week": 668,
+        "customers_change": 129,
+        "revenue_to_date": 25354,
+        "avg_spend": 31.81,
+        "avg_recency_days": 12.2
+      },
+      {
+        "segment": "dormant",
+        "description": "Dormant: no purchase for 60+ days",
+        "customers": 1064,
+        "customers_previous_week": 721,
+        "customers_change": 343,
+        "revenue_to_date": 45801,
+        "avg_spend": 43.05,
+        "avg_recency_days": 73.5
+      },
+      {
+        "segment": "one_time_lapsing",
+        "description": "One-time, lapsing: single order 31-60 days ago",
+        "customers": 1317,
+        "customers_previous_week": 1699,
+        "customers_change": -382,
+        "revenue_to_date": 63474,
+        "avg_spend": 48.2,
+        "avg_recency_days": 48.6
+      }
+    ]
+  },
+  "products": {
+    "top_gainers": [
+      {
+        "item_name": "Google Knit Blanket",
+        "item_revenue_cur": 631,
+        "item_revenue_prev": 280,
+        "revenue_delta": 351,
+        "views_cur": 265,
+        "units_cur": 9
+      }
+    ],
+    "top_decliners": [
+      {
+        "item_name": "Google Crewneck Sweatshirt Green",
+        "item_revenue_cur": 275,
+        "item_revenue_prev": 1925,
+        "revenue_delta": -1650,
+        "views_cur": 3040,
+        "units_cur": 6
+      },
+      {
+        "item_name": "Gift Card- $100.00",
+        "item_revenue_cur": 0,
+        "item_revenue_prev": 1200,
+        "revenue_delta": -1200,
+        "views_cur": 0,
+        "units_cur": 0
+      },
+      {
+        "item_name": "Google Sherpa Zip Hoodie Charcoal",
+        "item_revenue_cur": 220,
+        "item_revenue_prev": 1045,
+        "revenue_delta": -825,
+        "views_cur": 2965,
+        "units_cur": 4
+      },
+      {
+        "item_name": "Google Campus Bike",
+        "item_revenue_cur": 0,
+        "item_revenue_prev": 688,
+        "revenue_delta": -688,
+        "views_cur": 193,
+        "units_cur": 0
+      },
+      {
+        "item_name": "Google Zip Hoodie F/C",
+        "item_revenue_cur": 0,
+        "item_revenue_prev": 600,
+        "revenue_delta": -600,
+        "views_cur": 3027,
+        "units_cur": 0
+      }
+    ],
+    "high_interest_low_conversion": [
+      {
+        "item_name": "Android Large Trace Journal Black",
+        "views_cur": 2067,
+        "adds_to_cart_cur": 420,
+        "purchase_lines_cur": 0,
+        "view_to_purchase_pct": 0
+      },
+      {
+        "item_name": "Android Small Trace Journal Black",
+        "views_cur": 1942,
+        "adds_to_cart_cur": 400,
+        "purchase_lines_cur": 0,
+        "view_to_purchase_pct": 0
+      },
+      {
+        "item_name": "Android Super Hero 3D Framed Art",
+        "views_cur": 1869,
+        "adds_to_cart_cur": 409,
+        "purchase_lines_cur": 0,
+        "view_to_purchase_pct": 0
+      },
+      {
+        "item_name": "Android Techie 3D Framed Art",
+        "views_cur": 2353,
+        "adds_to_cart_cur": 533,
+        "purchase_lines_cur": 0,
+        "view_to_purchase_pct": 0
+      },
+      {
+        "item_name": "Candy Cane Android Cardboard Sculpture",
+        "views_cur": 2379,
+        "adds_to_cart_cur": 523,
+        "purchase_lines_cur": 0,
+        "view_to_purchase_pct": 0
+      }
+    ],
+    "categories": [
+      {
+        "item_category": "Apparel",
+        "revenue_cur": 2435,
+        "revenue_prev": 13358
+      },
+      {
+        "item_category": "Lifestyle",
+        "revenue_cur": 906,
+        "revenue_prev": 1041
+      },
+      {
+        "item_category": "Uncategorized Items",
+        "revenue_cur": 482,
+        "revenue_prev": 660
+      },
+      {
+        "item_category": "Office",
+        "revenue_cur": 281,
+        "revenue_prev": 344
+      },
+      {
+        "item_category": "Accessories",
+        "revenue_cur": 265,
+        "revenue_prev": 2221
+      },
+      {
+        "item_category": "Campus Collection",
+        "revenue_cur": 239,
+        "revenue_prev": 927
+      },
+      {
+        "item_category": "Drinkware",
+        "revenue_cur": 177,
+        "revenue_prev": 688
+      },
+      {
+        "item_category": "New",
+        "revenue_cur": 176,
+        "revenue_prev": 1557
+      }
+    ]
+  },
+  "data_quality": {
+    "fields": [
+      {
+        "table_name": "sessions",
+        "field": "session_level_source",
+        "rows_checked": 360129,
+        "unusable_rows": 95318,
+        "unusable_pct": 26.5
+      },
+      {
+        "table_name": "sessions",
+        "field": "source",
+        "rows_checked": 360129,
+        "unusable_rows": 88004,
+        "unusable_pct": 24.4
+      },
+      {
+        "table_name": "sessions",
+        "field": "campaign",
+        "rows_checked": 360129,
+        "unusable_rows": 62710,
+        "unusable_pct": 17.4
+      },
+      {
+        "table_name": "sessions",
+        "field": "medium",
+        "rows_checked": 360129,
+        "unusable_rows": 50765,
+        "unusable_pct": 14.1
+      },
+      {
+        "table_name": "sessions",
+        "field": "landing_page",
+        "rows_checked": 360129,
+        "unusable_rows": 26446,
+        "unusable_pct": 7.3
+      },
+      {
+        "table_name": "products",
+        "field": "item_category",
+        "rows_checked": 126490,
+        "unusable_rows": 6590,
+        "unusable_pct": 5.2
+      },
+      {
+        "table_name": "sessions",
+        "field": "country",
+        "rows_checked": 360129,
+        "unusable_rows": 2882,
+        "unusable_pct": 0.8
+      },
+      {
+        "table_name": "products",
+        "field": "item_name",
+        "rows_checked": 126490,
+        "unusable_rows": 73,
+        "unusable_pct": 0.1
+      },
+      {
+        "table_name": "sessions",
+        "field": "device",
+        "rows_checked": 360129,
+        "unusable_rows": 0,
+        "unusable_pct": 0
+      }
+    ],
+    "notes": [
+      "Session-level source is available for 73.5% of sessions; the rest use the user's first-touch source.",
+      "Treat source breakdowns with caution: 24.4% of sessions rows are unknown or obfuscated."
+    ]
+  }
+}
