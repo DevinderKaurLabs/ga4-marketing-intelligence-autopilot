@@ -59,7 +59,8 @@ def detect(rated: pd.DataFrame, weeks: list, week, baseline_n: int = 4) -> pd.Da
     base_weeks = weeks[max(0, idx - baseline_n):idx]
     prev_base_weeks = weeks[max(0, idx - 1 - baseline_n):idx - 1]
     data = rated[rated["week_start"].isin(base_weeks + [week])]
-    data = data[~data["dimension_value"].fillna("").isin(UNUSABLE_VALUES)]
+    vals = data["dimension_value"].fillna("")
+    data = data[~vals.isin(UNUSABLE_VALUES) & ~vals.str.contains("<Other>|\\(data deleted\\)", regex=True)]
     total = rated[rated["dimension"] == "total"].set_index("week_start")
     tot_cur, tot_prev = total.loc[week], total.loc[prev_week]
     rows = []

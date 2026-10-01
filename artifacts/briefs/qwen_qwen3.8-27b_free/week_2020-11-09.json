@@ -1,0 +1,98 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "Revenue rose 8.6% to 23,694, but the conversion-rate increase must be verified before it is treated as a demand story.",
+    "executive_summary": [
+      "Total revenue was 23,694, up 8.6% from 21,820, while sessions were 22,508, down 9.9% from 24,991.",
+      "The payload marks the conversion-rate increase from 1.0 to 1.52 with check_tracking true, so it is not a demand story.",
+      "Referral and mobile segments moved above the total, while Canada and direct traffic moved below it.",
+      "This is Google's public obfuscated GA4 sample, not a real client."
+    ],
+    "what_changed": [
+      {
+        "title": "Total revenue up",
+        "detail": "Revenue was 23,694, up 8.6% from 21,820; transactions were 366, up 25.8% from 291; sessions were 22,508, down 9.9% from 24,991.",
+        "severity": "positive"
+      },
+      {
+        "title": "Conversion-rate increase needs verification",
+        "detail": "Conversion rate was 1.52, up 52.1% from 1.0; the payload marks this figure with check_tracking true.",
+        "severity": "warning"
+      },
+      {
+        "title": "Referral revenue outperformed total",
+        "detail": "Referral campaign revenue was 13,378, up 26.2% from 10,597, with gap_vs_total_pts 17.7 and segment_share_pct 56.5.",
+        "severity": "positive"
+      },
+      {
+        "title": "Mobile revenue outperformed total",
+        "detail": "Mobile revenue was 10,610, up 35.3% from 7,842, with gap_vs_total_pts 26.7; mobile revenue per session was 1.19, up 51.6% from 0.78.",
+        "severity": "positive"
+      },
+      {
+        "title": "Canada revenue underperformed total",
+        "detail": "Canada revenue was 1,739, down 45.3% from 3,181, with gap_vs_total_pts -53.9; Canada AOV was 57.97, down 41.7% from 99.41, with gap_vs_total_pts -28.",
+        "severity": "critical"
+      }
+    ],
+    "likely_drivers": [
+      "No calendar events are present, so seasonality cannot be explained from the payload.",
+      "The total revenue increase is consistent with referral campaign revenue of 13,378, up 26.2%, and mobile revenue of 10,610, up 35.3%.",
+      "The Canada decline is likely a segment-specific issue because Canada revenue was 1,739, down 45.3%, while total revenue was up 8.6%.",
+      "The direct-traffic weakness is consistent with direct revenue per session of 0.23, down 41.9%, and direct checkout-to-purchase rate of 14.53, down 32.2%."
+    ],
+    "risks": [
+      "If the conversion-rate figure is not verified, the team may act on a tracking artifact instead of real demand.",
+      "If Canada and direct underperformance are ignored, the business may remain exposed to segment declines.",
+      "If source data quality is ignored, channel actions may be based on 24.4% unknown or obfuscated source rows."
+    ],
+    "actions": [
+      {
+        "action": "Verify the conversion-rate tracking before using the 1.52 conversion rate in planning.",
+        "why": "The payload marks the conversion-rate increase as check_tracking true, so it is not a demand story.",
+        "owner": "Analytics & tracking",
+        "priority": "high",
+        "evidence": "conversion_rate current 1.52, previous 1, change_pct 52.1, check_tracking true"
+      },
+      {
+        "action": "Review direct checkout-to-purchase and revenue per session to identify the drop.",
+        "why": "Direct traffic moved far below the total and shows lower checkout completion and revenue per session.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "direct revenue_per_session 0.23, down 41.9% from 0.4, gap_vs_total_pts -62.4; direct checkout_to_purchase_rate 14.53, down 32.2% from 21.43, gap_vs_total_pts -48.4"
+      },
+      {
+        "action": "Review Canada order composition and checkout experience to understand the revenue and AOV decline.",
+        "why": "Canada moved far below the total on revenue and AOV.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "Canada revenue 1,739, down 45.3% from 3,181, gap_vs_total_pts -53.9; Canada AOV 57.97, down 41.7% from 99.41, gap_vs_total_pts -28"
+      }
+    ],
+    "data_caveats": [
+      "The conversion-rate increase from 1.0 to 1.52 has check_tracking true; it must be verified before acting and is not a demand story.",
+      "Treat <Other> and (data deleted) as obfuscated placeholders, not real channels or campaigns.",
+      "Source breakdowns should be treated with caution because 24.4% of sessions rows are unknown or obfuscated."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": false,
+      "error": "the model used its whole length budget before answering (empty reply)",
+      "invalid": [],
+      "raw_reply": "__EMPTY_OUT_OF_TOKENS__"
+    },
+    {
+      "attempt": 2,
+      "ok_json": true,
+      "numbers_checked": 76,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 76,
+  "latency_s": 334.2,
+  "prompt_tokens": 12504,
+  "completion_tokens": 15917
+}

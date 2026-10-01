@@ -1,0 +1,56 @@
+{
+  "run": {"week_start": "2020-12-21", "week_end": "2020-12-27", "previous_week_start": "2020-12-14",
+          "data_source": "bigquery-public-data.ga4_obfuscated_sample_ecommerce",
+          "note": "Public obfuscated GA4 sample (Google Merchandise Store). Architecture demonstration."},
+  "calendar_events": {"this_week": ["2020-12-24: Christmas Eve", "2020-12-25: Christmas Day", "2020-12-26: Boxing Day"], "previous_week": []},
+  "kpis": {
+    "revenue": {"current": 14716, "previous": 47276, "change_pct": -68.9},
+    "transactions": {"current": 257, "previous": 685, "change_pct": -62.5},
+    "sessions": {"current": 22083, "previous": 33411, "change_pct": -33.9},
+    "users": {"current": 19137, "previous": 27421, "change_pct": -30.2},
+    "new_users": {"current": 17217, "previous": 24483, "change_pct": -29.7},
+    "conversion_rate": {"current": 1.06, "previous": 1.64, "change_pct": -35.8, "change_points": -0.59},
+    "aov": {"current": 57.26, "previous": 69.02, "change_pct": -17},
+    "revenue_per_session": {"current": 0.67, "previous": 1.41, "change_pct": -52.9},
+    "engagement_rate": {"current": 89.49, "previous": 88.11, "change_pct": 1.6, "change_points": 1.38},
+    "new_user_share": {"current": 89.97, "previous": 89.29, "change_pct": 0.8, "change_points": 0.68}
+  },
+  "funnel": {"steps": {
+      "Product view -> add to cart": {"current": 23.94, "previous": 29.57, "change_pct": -19, "change_points": -5.63},
+      "Add to cart -> checkout": {"current": 42.23, "previous": 48.49, "change_pct": -12.9, "change_points": -6.26},
+      "Checkout -> purchase": {"current": 56.01, "previous": 54.09, "change_pct": 3.6, "change_points": 1.92}},
+    "biggest_leak": {"step": "Product view -> add to cart", "change_pct": -19}},
+  "anomalies": {"counts": {"risks": {"critical": 9, "warning": 2}, "opportunities": {}},
+    "risks": [
+      {"severity": "critical", "rule": "large_change", "dimension": "total", "dimension_value": "All traffic", "metric": "revenue", "metric_label": "Revenue", "current_value": 14716, "previous_value": 47276, "change_pct": -68.9, "change_abs": -32560, "z_score": -4.86, "segment_revenue_delta": -32560, "segment_share_pct": 100},
+      {"severity": "critical", "rule": "large_change", "dimension": "total", "dimension_value": "All traffic", "metric": "revenue_per_session", "metric_label": "Revenue per session", "current_value": 0.67, "previous_value": 1.41, "change_pct": -52.9, "change_abs": -0.75, "z_score": -5.47, "segment_revenue_delta": -32560, "segment_share_pct": 100, "check_tracking": true},
+      {"severity": "critical", "rule": "large_change", "dimension": "country", "dimension_value": "Canada", "metric": "revenue", "metric_label": "Revenue", "current_value": 2086, "previous_value": 4409, "change_pct": -52.7, "change_abs": -2323, "z_score": -2.68, "segment_revenue_delta": -2323, "total_change_pct": -68.9, "gap_vs_total_pts": 16.2, "segment_share_pct": 14.2}
+    ],
+    "opportunities": []},
+  "channels": [
+    {"name": "google / organic", "revenue": 3768, "revenue_change_pct": -71.3, "sessions": 7949, "sessions_change_pct": -31.6, "transactions": 74, "transactions_change_pct": -66.8, "conversion_rate": 0.84, "conversion_rate_change_pct": -45.9},
+    {"name": "(direct) / (none)", "revenue": 1484, "revenue_change_pct": -71.2, "sessions": 3910, "sessions_change_pct": -34.4, "transactions": 20, "transactions_change_pct": -69.2, "conversion_rate": 0.49, "conversion_rate_change_pct": -32.7}
+  ],
+  "devices": [
+    {"name": "desktop", "revenue": 9074, "revenue_change_pct": -68.1, "sessions": 12688, "sessions_change_pct": -34.5, "transactions": 132, "transactions_change_pct": -66.3, "conversion_rate": 0.94, "conversion_rate_change_pct": -41.4},
+    {"name": "mobile", "revenue": 5248, "revenue_change_pct": -71.6, "sessions": 8904, "sessions_change_pct": -33.1, "transactions": 117, "transactions_change_pct": -59.2, "conversion_rate": 1.19, "conversion_rate_change_pct": -32}
+  ],
+  "countries": [], "campaigns": [],
+  "customers": {"this_week": {
+      "purchasers": {"current": 230, "previous": 524, "change_pct": -56.1},
+      "returning_purchasers": {"current": 29, "previous": 34, "change_pct": -14.7},
+      "revenue_from_returning": {"current": 2735, "previous": 2514, "change_pct": 8.8},
+      "returning_revenue_share_pct": {"current": 18.59, "previous": 5.31, "change_pct": 249.7, "change_points": 13.27}},
+    "rfm_high_value_threshold": 101.5,
+    "rfm_segments": [
+      {"segment": "at_risk_high_value", "description": "At-risk high value: high spend, no purchase for 45+ days", "customers": 58, "customers_previous_week": 16, "customers_change": 42, "revenue_to_date": 11190, "avg_spend": 192.93, "avg_recency_days": 50.4}]},
+  "products": {
+    "top_gainers": [], "top_decliners": [
+      {"item_name": "Super G Unisex Joggers", "item_revenue_cur": 545, "item_revenue_prev": 1960, "revenue_delta": -1415, "views_cur": 1787, "units_cur": 17}],
+    "high_interest_low_conversion": [
+      {"item_name": "Google Eco Tee Black", "views_cur": 2711, "adds_to_cart_cur": 1063, "purchase_lines_cur": 0, "view_to_purchase_pct": 0, "check_tracking": true}],
+    "categories": [{"item_category": "Apparel", "revenue_cur": 4948, "revenue_prev": 18004}]},
+  "data_quality": {"fields": [], "notes": [
+    "Session-level source is available for 73.5% of sessions; the rest use the user's first-touch source.",
+    "Treat source breakdowns with caution: 24.4% of sessions rows are unknown or obfuscated."]}
+}

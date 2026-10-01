@@ -1,0 +1,87 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "In Google's public demo dataset, revenue rose 60.7% to 38086, driven largely by the United States.",
+    "executive_summary": [
+      "Revenue was 38086, up 60.7% from 23694; transactions were 563, up 53.8% from 366.",
+      "Sessions rose 15.1% to 25914, but conversion rate fell to 1.44 from 1.52.",
+      "United States revenue was 17492, up 86.5%, with a gap_vs_total_pts of 25.7.",
+      "Source attribution is partially obfuscated; channel-level conclusions need caution."
+    ],
+    "what_changed": [
+      {
+        "title": "Total revenue and transactions rose sharply",
+        "detail": "Revenue was 38086, up 60.7% from 23694; transactions were 563, up 53.8% from 366.",
+        "severity": "positive"
+      },
+      {
+        "title": "Conversion rate declined",
+        "detail": "Conversion rate was 1.44, down 4.7% from 1.52, while sessions rose 15.1% to 25914.",
+        "severity": "warning"
+      },
+      {
+        "title": "United States outperformed total",
+        "detail": "US revenue was 17492, up 86.5% from 9381, with gap_vs_total_pts of 25.7.",
+        "severity": "positive"
+      }
+    ],
+    "likely_drivers": [
+      "The total revenue lift is likely concentrated in the United States, which had revenue of 17492, up 86.5%, and a gap_vs_total_pts of 25.7.",
+      "Higher revenue per session, 1.47 versus 1.05, is consistent with more value per visit rather than only more sessions.",
+      "Mobile transactions grew 75.5% to 258, which may have contributed to the total transaction increase."
+    ],
+    "risks": [
+      "If the conversion-rate decline continues, future session growth may not translate into revenue.",
+      "If the US lift is not verified, channel decisions may rely on partially obfuscated source data.",
+      "High-interest products with zero purchases, such as Google Blue Stojo Cup with 1467 views and 0 purchase lines, may indicate a checkout or product-page issue."
+    ],
+    "actions": [
+      {
+        "action": "Audit the checkout flow for mobile and desktop to identify why conversion rate fell to 1.44 from 1.52.",
+        "why": "Sessions grew 15.1% but conversion rate declined 4.7%, suggesting a friction point in the purchase path.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "conversion_rate current 1.44, previous 1.52, change_pct -4.7; sessions current 25914, previous 22508, change_pct 15.1"
+      },
+      {
+        "action": "Investigate the United States revenue spike to confirm whether it is a demand story or a tracking artifact.",
+        "why": "US revenue grew 86.5% versus 60.7% total, with gap_vs_total_pts of 25.7, which is a large divergence.",
+        "owner": "Analytics & tracking",
+        "priority": "medium",
+        "evidence": "United States revenue current 17492, previous 9381, change_pct 86.5, gap_vs_total_pts 25.7"
+      },
+      {
+        "action": "Review product pages and pricing for Google Blue Stojo Cup, which has high views but zero purchases.",
+        "why": "The product has 1467 views and 99 adds to cart but 0 purchase lines, indicating a drop-off at the purchase step.",
+        "owner": "Merchandising",
+        "priority": "medium",
+        "evidence": "Google Blue Stojo Cup views_cur 1467, adds_to_cart_cur 99, purchase_lines_cur 0, view_to_purchase_pct 0"
+      }
+    ],
+    "data_caveats": [
+      "This is Google's public obfuscated GA4 sample dataset, not a real client.",
+      "24.4% of session-level source rows are unknown or obfuscated; treat channel breakdowns with caution.",
+      "Calendar events are empty for both weeks, so no seasonality explanation is available from the payload."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": false,
+      "error": "Expecting ',' delimiter: line 29 column 6 (char 1300)",
+      "invalid": [],
+      "raw_reply": "{\n  \"headline\": \"In Google's public demo dataset, revenue rose 60.7% to 38086, with the United States outpacing total growth.\",\n  \"executive_summary\": [\n    \"Revenue was 38086, up 60.7% from 23694, and transactions were 563, up 53.8% from 366.\",\n    \"Sessions rose 15.1% to 25914, but conversion rate fell to 1.44 from 1.52.\",\n    \"The United States had revenue of 17492, up 86.5%, with a gap_vs_tota"
+    },
+    {
+      "attempt": 2,
+      "ok_json": true,
+      "numbers_checked": 59,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 59,
+  "latency_s": 309.8,
+  "prompt_tokens": 11571,
+  "completion_tokens": 12471
+}

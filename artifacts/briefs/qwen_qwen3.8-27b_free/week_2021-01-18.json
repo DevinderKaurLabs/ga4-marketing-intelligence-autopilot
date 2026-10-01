@@ -1,0 +1,100 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "In Google's public GA4 sample, total revenue rose from 13150 to 26966 while sessions fell from 27707 to 27478, and the conversion spike must be verified before acting.",
+    "executive_summary": [
+      "This brief uses Google's public obfuscated GA4 sample, not a real client.",
+      "Total revenue changed 105.1% and total transactions changed 58.1%, while total sessions changed -0.8%.",
+      "Total conversion rate changed from 0.82 to 1.36, but the payload flags conversion rate and revenue per session for tracking verification.",
+      "Referral campaign revenue was 16252 with a 175.6% change, while direct campaign revenue was 1033 with a -38.6% change."
+    ],
+    "what_changed": [
+      {
+        "title": "Total revenue and transactions rose",
+        "detail": "Revenue was 26966 versus 13150, a 105.1% change; transactions were 400 versus 253, a 58.1% change; sessions were 27478 versus 27707, a -0.8% change.",
+        "severity": "positive"
+      },
+      {
+        "title": "Product view to add to cart weakened",
+        "detail": "Product view -> add to cart was 18.63 versus 22.45, a -17% change and -3.82 points; the payload lists it as the biggest leak.",
+        "severity": "warning"
+      },
+      {
+        "title": "Direct traffic and revenue fell",
+        "detail": "Direct campaign users were 3596 versus 5040, a -28.7% change; direct campaign sessions were 3724 versus 5173, a -28% change; direct campaign revenue was 1033 with a -38.6% change.",
+        "severity": "watch"
+      },
+      {
+        "title": "Referral campaign performance improved",
+        "detail": "Referral campaign revenue was 16252 with a 175.6% change; transactions were 246 with a 110.3% change; conversion rate was 3 with an 87.8% change.",
+        "severity": "positive"
+      }
+    ],
+    "likely_drivers": [
+      "The revenue increase is likely consistent with stronger referral campaign performance, because referral campaign revenue was 16252 and changed 175.6%.",
+      "The revenue increase is likely consistent with a higher cart to checkout rate, which rose from 42.15 to 56.62, a 34.3% change.",
+      "The direct traffic decline is likely consistent with direct campaign sessions falling from 5173 to 3724, a -28% change."
+    ],
+    "risks": [
+      "If the conversion rate and revenue per session spikes are tracking errors, the team may make decisions on inflated performance.",
+      "If product view -> add to cart remains the biggest leak, product interest may not become carts.",
+      "If direct traffic continues to fall, the sample may become more dependent on referral traffic."
+    ],
+    "actions": [
+      {
+        "action": "Verify GA4 purchase, revenue, and conversion tracking before using the conversion rate or revenue per session figures in planning.",
+        "why": "The payload marks these figures for tracking verification, so they are not a demand story until confirmed.",
+        "owner": "Analytics & tracking",
+        "priority": "high",
+        "evidence": "revenue_per_session current 0.98 previous 0.47 change_pct 106.8 check_tracking true; conversion_rate current 1.36 previous 0.82 change_pct 66.6 check_tracking true"
+      },
+      {
+        "action": "Run one add-to-cart test on top product detail pages, starting with Google Cloud Unisex Zip Hoodie and Google Women's Striped L/S.",
+        "why": "The funnel shows the biggest leak at product view -> add to cart, and these items have high views and adds to cart.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "Product view -> add to cart current 18.63 previous 22.45 change_pct -17 change_points -3.82; Google Cloud Unisex Zip Hoodie views_cur 3186 adds_to_cart_cur 670; Google Women's Striped L/S views_cur 3267 adds_to_cart_cur 739"
+      },
+      {
+        "action": "Create a reactivation test for at-risk high value customers.",
+        "why": "The at-risk high value segment grew and has high historical spend, so a targeted CRM test can check whether it can be recovered.",
+        "owner": "CRM & retention",
+        "priority": "medium",
+        "evidence": "at_risk_high_value customers 470 previous 272 change 198; revenue_to_date 96564; avg_recency_days 62.6"
+      }
+    ],
+    "data_caveats": [
+      "Revenue per session and conversion rate have check_tracking true, so both figures must be verified before acting.",
+      "Source breakdowns should be treated with caution because 24.4% of sessions rows are unknown or obfuscated.",
+      "Calendar events are empty, so seasonality cannot be explained from the payload.",
+      "The data is Google's public obfuscated GA4 sample, not a real client."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": false,
+      "error": "the model used its whole length budget before answering (empty reply)",
+      "invalid": [],
+      "raw_reply": "__EMPTY_OUT_OF_TOKENS__"
+    },
+    {
+      "attempt": 2,
+      "ok_json": false,
+      "error": "the model used its whole length budget before answering (empty reply)",
+      "invalid": [],
+      "raw_reply": "__EMPTY_OUT_OF_TOKENS__"
+    },
+    {
+      "attempt": 3,
+      "ok_json": true,
+      "numbers_checked": 67,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 67,
+  "latency_s": 720.7,
+  "prompt_tokens": 17964,
+  "completion_tokens": 23528
+}

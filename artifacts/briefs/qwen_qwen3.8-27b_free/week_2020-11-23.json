@@ -1,0 +1,93 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "Revenue rose 26% to 47973 in the Thanksgiving/Black Friday week, but the add-to-cart to checkout step fell to 102.82 from 196.99.",
+    "executive_summary": [
+      "Total revenue was 47973, up 26% from 38086, with transactions at 681, up 21% from 563.",
+      "Sessions were 27780, up 7.2%, and users were 22126, up 10.8%, consistent with the US Thanksgiving and Black Friday calendar.",
+      "Conversion rate was 1.85, up 28.5% from 1.44, and AOV was 70.44, up 4.1% from 67.65.",
+      "The biggest funnel leak was Add to cart -> checkout, which moved to 102.82 from 196.99, a -47.8% change."
+    ],
+    "what_changed": [
+      {
+        "title": "Total revenue and transactions increased",
+        "detail": "Revenue was 47973 vs 38086, +26%; transactions were 681 vs 563, +21%; sessions were 27780 vs 25914, +7.2%.",
+        "severity": "positive"
+      },
+      {
+        "title": "Add to cart -> checkout declined",
+        "detail": "Add to cart -> checkout was 102.82 vs 196.99, -47.8%, and is the biggest leak.",
+        "severity": "critical"
+      },
+      {
+        "title": "Referral channel converted strongly",
+        "detail": "shop.googlemerchandisestore.com / referral revenue was 13458, +29.4%, with conversion rate 2.97, +62.7%, while sessions were 4949, +0.4%.",
+        "severity": "positive"
+      },
+      {
+        "title": "Mobile view-to-cart moved below total",
+        "detail": "Mobile product view to cart rate was 18.64 vs 8.42, +121.5%, with gap_vs_total_pts -16.8; total view-to-cart is flagged for tracking verification.",
+        "severity": "watch"
+      }
+    ],
+    "likely_drivers": [
+      "The week included US Thanksgiving and Black Friday, likely driving higher sessions, users, and revenue.",
+      "New users were 19299, up 12.9% from 17100, consistent with holiday shopping traffic.",
+      "The add-to-cart to checkout decline is not explained by the calendar events in the payload and likely needs a checkout or tracking investigation."
+    ],
+    "risks": [
+      "If the add-to-cart to checkout step remains at 102.82 vs 196.99, checkout completions may continue to be lost.",
+      "If the product view to cart rate is not verified, teams may act on a tracking artifact instead of a demand change.",
+      "If new purchasers are not followed up, returning revenue share may remain low at 2.21 vs 3.28."
+    ],
+    "actions": [
+      {
+        "action": "Verify the product view to cart tracking before using it in planning.",
+        "why": "The total product view to cart rate is flagged as check_tracking true and is not a demand story.",
+        "owner": "Analytics & tracking",
+        "priority": "high",
+        "evidence": "Product view to cart rate current 19.11, previous 8.02, change_pct 138.4, check_tracking true."
+      },
+      {
+        "action": "Review the add-to-cart to checkout step in the checkout flow and confirm whether the 102.82 vs 196.99 change is a tracking or conversion issue.",
+        "why": "This step is the biggest leak and a critical risk.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "Add to cart -> checkout current 102.82, previous 196.99, change_pct -47.8, biggest_leak."
+      },
+      {
+        "action": "Create a post-purchase follow-up flow for new purchasers to encourage a second order.",
+        "why": "New purchasers and new-purchaser revenue rose sharply, while returning revenue share fell.",
+        "owner": "CRM & retention",
+        "priority": "medium",
+        "evidence": "New purchasers current 484, previous 352, change_pct 37.5; revenue_from_new current 46840, previous 36903, change_pct 26.9; returning_revenue_share_pct current 2.21, previous 3.28."
+      }
+    ],
+    "data_caveats": [
+      "Product view to cart rate for All traffic (current 19.11, previous 8.02, change_pct 138.4) has check_tracking true and must be verified before acting.",
+      "Session-level source is available for 73.5% of sessions; source breakdowns should be treated with caution because 24.4% of sessions rows are unknown or obfuscated.",
+      "<Other>, (data deleted), and (not set) are obfuscated placeholders and should not be used for actions.",
+      "This is Google's public obfuscated GA4 sample, not a real client."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": false,
+      "error": "the model used its whole length budget before answering (empty reply)",
+      "invalid": [],
+      "raw_reply": "__EMPTY_OUT_OF_TOKENS__"
+    },
+    {
+      "attempt": 2,
+      "ok_json": true,
+      "numbers_checked": 73,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 73,
+  "latency_s": 307.3,
+  "prompt_tokens": 11402,
+  "completion_tokens": 13858
+}

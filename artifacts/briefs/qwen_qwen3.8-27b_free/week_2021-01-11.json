@@ -1,0 +1,100 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "Revenue rose 39.9% to 13150 while sessions fell 4.6%, with conversion rate up 46.8% to 0.82.",
+    "executive_summary": [
+      "This week's revenue was 13150, up 39.9% from 9402.",
+      "Sessions were 27707, down 4.6% from 29029, while conversion rate rose.",
+      "Conversion rate was 0.82, up 46.8% from 0.56, and revenue per session was 0.47, up 46.5% from 0.32.",
+      "This is Google's public obfuscated GA4 sample, not a real client."
+    ],
+    "what_changed": [
+      {
+        "title": "Revenue and transactions rose",
+        "detail": "Revenue was 13150 vs 9402, change_pct 39.9; transactions were 253 vs 170, change_pct 48.8.",
+        "severity": "positive"
+      },
+      {
+        "title": "Traffic fell",
+        "detail": "Sessions were 27707 vs 29029, change_pct -4.6; users were 23375 vs 24710, change_pct -5.4.",
+        "severity": "watch"
+      },
+      {
+        "title": "Conversion improved",
+        "detail": "Conversion rate was 0.82 vs 0.56, change_pct 46.8; add to cart to checkout was 42.15 vs 35.94, change_pct 17.3.",
+        "severity": "positive"
+      },
+      {
+        "title": "AOV fell",
+        "detail": "AOV was 51.98 vs 55.31, change_pct -6.",
+        "severity": "watch"
+      },
+      {
+        "title": "Some segments moved more than total",
+        "detail": "Mobile revenue was 6357, revenue_change_pct 87.8; Canada revenue was 1638, revenue_change_pct 283.6; total revenue change_pct was 39.9.",
+        "severity": "positive"
+      }
+    ],
+    "likely_drivers": [
+      "No calendar events are provided, so the lift is not explained by a known seasonal event.",
+      "The revenue lift is consistent with conversion rate rising from 0.56 to 0.82 and revenue per session rising from 0.32 to 0.47.",
+      "The improvement is likely supported by the add-to-cart to checkout step rising from 35.94 to 42.15.",
+      "New-purchaser revenue rose from 8321 to 12041, while returning-purchaser revenue was 1147, so the week likely relied more on new buyers."
+    ],
+    "risks": [
+      "If sessions continue to fall, the conversion lift may not offset the traffic decline.",
+      "AOV fell to 51.98, so revenue per transaction may weaken if basket value does not recover.",
+      "Source attribution is incomplete, with 24.4% of session source rows unusable, so channel performance may be misread.",
+      "High-interest products with zero purchase lines may leave demand unconverted."
+    ],
+    "actions": [
+      {
+        "action": "Validate the source attribution and funnel data behind the conversion lift before using it for channel decisions.",
+        "why": "The conversion lift is large, but source data quality is incomplete.",
+        "owner": "Analytics & tracking",
+        "priority": "high",
+        "evidence": "conversion_rate current 0.82 vs previous 0.56, change_pct 46.8; session source unusable_pct 24.4."
+      },
+      {
+        "action": "Run a CRO test on the cart-to-checkout flow to confirm the improvement is stable.",
+        "why": "The cart-to-checkout step improved and is likely contributing to the conversion lift.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "Add to cart -> checkout current 42.15 vs previous 35.94, change_pct 17.3; conversion_rate current 0.82 vs previous 0.56."
+      },
+      {
+        "action": "Audit the product page and purchase path for the five high-interest low-conversion products.",
+        "why": "These products have views and adds but no purchase lines, so demand may not be converting.",
+        "owner": "E-commerce & CRO",
+        "priority": "medium",
+        "evidence": "Google Blue Stojo Cup views_cur 1099, adds_to_cart_cur 221, purchase_lines_cur 0; Google Cloud Unisex Zip Hoodie views_cur 2051, adds_to_cart_cur 521, purchase_lines_cur 0."
+      }
+    ],
+    "data_caveats": [
+      "This is Google's public obfuscated GA4 sample, not a real client.",
+      "No calendar events are provided, so seasonality cannot be confirmed.",
+      "Treat source breakdowns with caution: 24.4% of sessions rows are unknown or obfuscated.",
+      "Session-level source is available for 73.5% of sessions; the rest use the user's first-touch source."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": false,
+      "error": "the model used its whole length budget before answering (empty reply)",
+      "invalid": [],
+      "raw_reply": "__EMPTY_OUT_OF_TOKENS__"
+    },
+    {
+      "attempt": 2,
+      "ok_json": true,
+      "numbers_checked": 67,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 67,
+  "latency_s": 398.8,
+  "prompt_tokens": 10968,
+  "completion_tokens": 15336
+}

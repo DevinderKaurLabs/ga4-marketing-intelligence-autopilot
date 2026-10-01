@@ -27,7 +27,9 @@ def product_insights(wp: pd.DataFrame, week, prev_week, top_n: int = 5) -> dict:
     viewed = m[m["views_cur"] >= max(200, m["views_cur"].quantile(0.9))].copy()
     viewed["view_to_purchase_pct"] = viewed["purchase_lines_cur"] / viewed["views_cur"] * 100
     low_conv = viewed.nsmallest(top_n, "view_to_purchase_pct")[
-        ["views_cur", "adds_to_cart_cur", "purchase_lines_cur", "view_to_purchase_pct"]]
+        ["views_cur", "adds_to_cart_cur", "purchase_lines_cur", "view_to_purchase_pct"]].copy()
+    # Many add-to-carts with zero purchases is usually item mapping/tracking, not demand
+    low_conv["check_tracking"] = (low_conv["adds_to_cart_cur"] >= 50) & (low_conv["purchase_lines_cur"] == 0)
 
     cats = wp.copy()
     cats["item_category"] = cats["item_category"].fillna("(not set)")

@@ -84,3 +84,21 @@ def save_payload(payload: dict) -> Path:
     path = folder / f"week_{payload['run']['week_start']}.json"
     path.write_text(json.dumps(payload, indent=2, default=str))
     return path
+
+
+def record_insight(result: dict, week: str, brief_path: Path) -> None:
+    """Store every AI brief with its validation outcome: the audit trail."""
+    con = connect()
+    con.execute("""CREATE TABLE IF NOT EXISTS insights (
+        run_id TEXT, week_start TEXT, model TEXT, status TEXT, attempts INTEGER,
+        numbers_checked INTEGER, invented_first_try INTEGER, latency_s REAL,
+        prompt_tokens INTEGER, completion_tokens INTEGER, headline TEXT, brief_path TEXT,
+        PRIMARY KEY (run_id, model))""")
+    first = result["attempts"][0] if result["attempts"] else {}
+    con.execute("INSERT OR REPLACE INTO insights VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", (
+        f"week_{week}", week, result["model"], result["status"], len(result["attempts"]),
+        result["numbers_checked"], len(first.get("invalid", [])) if first.get("ok_json") else None,
+        result["latency_s"], result["prompt_tokens"], result["completion_tokens"],
+        result["brief"]["headline"], str(brief_path.relative_to(ROOT))))
+    con.commit()
+    con.close()

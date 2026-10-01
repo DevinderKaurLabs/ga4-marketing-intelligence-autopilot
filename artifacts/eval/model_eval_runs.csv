@@ -1,0 +1,13 @@
+week_start,model,status,attempts,first_try_pass,invented_numbers_first_try,format_failures,tracking_flag_respected,action_on_placeholder,calendar_used,latency_s,prompt_tokens,completion_tokens
+2020-11-09,qwen/qwen3.8-27b:free,validated,2,False,,1,True,False,,334.2,12504,15917
+2020-11-16,qwen/qwen3.8-27b:free,validated,2,False,,1,,False,,309.8,11571,12471
+2020-11-23,qwen/qwen3.8-27b:free,validated,2,False,,1,True,False,True,307.3,11402,13858
+2020-11-30,qwen/qwen3.8-27b:free,validated,2,False,,1,True,False,True,369.1,12528,15123
+2020-12-07,qwen/qwen3.8-27b:free,validated,2,False,,1,,False,,201.7,12473,12076
+2020-12-14,qwen/qwen3.8-27b:free,validated,2,False,,1,,False,,357.9,12830,15841
+2020-12-21,qwen/qwen3.8-27b:free,validated,2,False,,1,True,False,True,560.8,11453,13976
+2020-12-28,qwen/qwen3.8-27b:free,validated,1,True,0.0,0,,False,True,158.5,6280,7897
+2021-01-04,qwen/qwen3.8-27b:free,validated,2,False,,1,,False,,299.3,12708,15336
+2021-01-11,qwen/qwen3.8-27b:free,validated,2,False,,1,,False,,398.8,10968,15336
+2021-01-18,qwen/qwen3.8-27b:free,validated,3,False,,2,True,False,,720.7,17964,23528
+2021-01-25,qwen/qwen3.8-27b:free,validated,3,False,,2,True,False,,541.2,18588,21837

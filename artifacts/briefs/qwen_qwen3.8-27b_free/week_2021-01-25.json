@@ -1,0 +1,106 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "Revenue fell 80.8% to 5178 while sessions fell only 4.1%, with a large AOV drop that needs tracking verification.",
+    "executive_summary": [
+      "Total revenue was 5178, down 80.8% from 26966.",
+      "Sessions were 26342, down 4.1% from 27478, and conversion rate was 1.18, down 13.8% from 1.36.",
+      "Average order value was 15.32, down 77.3% from 67.42.",
+      "No calendar events are provided to explain seasonality."
+    ],
+    "what_changed": [
+      {
+        "title": "Total revenue and order value fell sharply",
+        "detail": "Revenue was 5178 vs 26966 (-80.8%), AOV was 15.32 vs 67.42 (-77.3%), and revenue per session was 0.2 vs 0.98 (-80%).",
+        "severity": "critical"
+      },
+      {
+        "title": "Traffic was stable but conversion weakened",
+        "detail": "Sessions were 26342 vs 27478 (-4.1%), users were 21590 vs 22647 (-4.7%), and conversion rate was 1.18 vs 1.36 (-13.8%).",
+        "severity": "warning"
+      },
+      {
+        "title": "Checkout step weakened",
+        "detail": "Add to cart -> checkout was 53.31 vs 56.62 (-5.9%, -3.31 points) and was the biggest funnel leak.",
+        "severity": "warning"
+      },
+      {
+        "title": "Some countries showed weaker product view to cart",
+        "detail": "Canada view_to_cart_rate was 16.85 vs 22.11 (-23.8%) and India was 13.29 vs 16.91 (-21.4%).",
+        "severity": "warning"
+      },
+      {
+        "title": "Organic traffic increased",
+        "detail": "Organic sessions were 13640 vs 12036 (+13.3%) and organic users were 12644 vs 11351 (+11.4%).",
+        "severity": "positive"
+      }
+    ],
+    "likely_drivers": [
+      "No calendar events are provided, so seasonality cannot be explained from the payload.",
+      "The total revenue drop is likely consistent with the large drop in AOV (15.32 vs 67.42) and revenue per session (0.2 vs 0.98), while sessions and users changed less.",
+      "The funnel change is consistent with a weaker Add to cart -> checkout step (53.31 vs 56.62).",
+      "The revenue drop is consistent with lower revenue on high-revenue items, including Google Crewneck Sweatshirt Green revenue of 275 vs 1925 and Gift Card- $100.00 revenue of 0 vs 1200."
+    ],
+    "risks": [
+      "If the AOV and revenue per session drop is not verified, marketing may act on a tracking error.",
+      "If the checkout leak is not addressed, more carts may stop before purchase.",
+      "If high-value at-risk customers are not retained, the at-risk high value segment may keep growing from 470 to 668."
+    ],
+    "actions": [
+      {
+        "action": "Verify the AOV and revenue per session tracking setup before acting on the revenue drop.",
+        "why": "The total AOV and revenue per session anomalies are flagged for tracking verification.",
+        "owner": "Analytics & tracking",
+        "priority": "high",
+        "evidence": "AOV current 15.32, previous 67.42, change -77.3%; revenue per session current 0.2, previous 0.98, change -80%."
+      },
+      {
+        "action": "Review the checkout flow after add to cart.",
+        "why": "The Add to cart -> checkout step was the biggest funnel leak.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "Add to cart -> checkout current 53.31, previous 56.62, change -5.9%, -3.31 points."
+      },
+      {
+        "action": "Build a retention list for at-risk high-value customers.",
+        "why": "The at-risk high value segment grew and has high average spend.",
+        "owner": "CRM & retention",
+        "priority": "medium",
+        "evidence": "At-risk high value customers current 668, previous 470, avg_spend 199.57, avg_recency_days 65.6."
+      }
+    ],
+    "data_caveats": [
+      "Total AOV and total revenue per session have check_tracking true; verify before acting.",
+      "Source breakdowns should be treated with caution because 24.4% of sessions rows are unknown or obfuscated.",
+      "<Other>, (data deleted), and (not set) are placeholders and should not be used for actions.",
+      "No calendar events are provided, so seasonality is not explained."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": false,
+      "error": "the model used its whole length budget before answering (empty reply)",
+      "invalid": [],
+      "raw_reply": "__EMPTY_OUT_OF_TOKENS__"
+    },
+    {
+      "attempt": 2,
+      "ok_json": false,
+      "error": "the model used its whole length budget before answering (empty reply)",
+      "invalid": [],
+      "raw_reply": "__EMPTY_OUT_OF_TOKENS__"
+    },
+    {
+      "attempt": 3,
+      "ok_json": true,
+      "numbers_checked": 75,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 75,
+  "latency_s": 541.2,
+  "prompt_tokens": 18588,
+  "completion_tokens": 21837
+}

@@ -1,0 +1,90 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "Post-holiday revenue and conversion fell sharply, with mobile and Canada underperforming the total.",
+    "executive_summary": [
+      "Revenue was 10368 vs 14716 (-29.5%), transactions were 165 vs 257 (-35.8%), and conversion rate was 0.68 vs 1.06 (-36%).",
+      "Sessions were 20444 vs 22083 (-7.4%), so the revenue drop is not explained by traffic alone.",
+      "Mobile and Canada moved further below the total, while total AOV rose to 62.84 vs 57.26 (+9.7%)."
+    ],
+    "what_changed": [
+      {
+        "title": "Total revenue and conversion fell after the holiday week",
+        "detail": "Revenue was 10368 vs 14716 (-29.5%), transactions were 165 vs 257 (-35.8%), and conversion rate was 0.68 vs 1.06 (-36%).",
+        "severity": "critical"
+      },
+      {
+        "title": "Mobile monetization fell more than the total",
+        "detail": "Mobile revenue per session was 0.26 vs 0.59 (-55.4%, gap_vs_total_pts -31.5) and mobile AOV was 28.63 vs 44.85 (-36.2%, gap_vs_total_pts -45.9).",
+        "severity": "critical"
+      },
+      {
+        "title": "Canada fell more than the total",
+        "detail": "Canada revenue per session was 0.29 vs 1.34 (-78.4%, gap_vs_total_pts -54.5) and Canada conversion rate was 0.51 vs 1.54 (-67.1%, gap_vs_total_pts -31.1).",
+        "severity": "critical"
+      },
+      {
+        "title": "AOV rose while transactions fell",
+        "detail": "Total AOV was 62.84 vs 57.26 (+9.7%) and desktop AOV was 92.42 vs 68.74 (+34.4%, gap_vs_total_pts 24.7), while total transactions were 165 vs 257 (-35.8%).",
+        "severity": "positive"
+      },
+      {
+        "title": "High-interest products had zero purchases",
+        "detail": "Android Iconic Crewneck Sweatshirt had views_cur 1366, adds_to_cart_cur 486, purchase_lines_cur 0, view_to_purchase_pct 0, and revenue_delta -616.",
+        "severity": "warning"
+      }
+    ],
+    "likely_drivers": [
+      "The week followed Christmas Eve, Christmas Day, and Boxing Day, so the drop is likely a post-holiday demand reset.",
+      "New Year's Eve and New Year's Day may have reduced purchase intent, consistent with lower transactions and conversion.",
+      "Mobile and Canada gaps are consistent with a larger post-holiday reset in those segments, but the size of the gaps suggests segment-specific issues to verify.",
+      "The AOV increase is consistent with fewer, larger orders after the holiday peak."
+    ],
+    "risks": [
+      "If mobile and Canada issues are not checked, the revenue decline may continue into the next week.",
+      "If high-interest products remain at zero purchases, product demand will not convert.",
+      "If source data is not treated with caution, channel decisions may be based on obfuscated or missing source values."
+    ],
+    "actions": [
+      {
+        "action": "Validate Canada tracking and purchase data before changing media or offers",
+        "why": "Canada is far below the total on revenue per session and conversion rate.",
+        "owner": "Analytics & tracking",
+        "priority": "high",
+        "evidence": "Canada revenue per session 0.29 vs 1.34 (-78.4%, gap_vs_total_pts -54.5); Canada conversion rate 0.51 vs 1.54 (-67.1%, gap_vs_total_pts -31.1)."
+      },
+      {
+        "action": "Review mobile product-to-cart and checkout paths",
+        "why": "Mobile monetization is far below the total, so the mobile purchase path needs a focused check.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "Mobile revenue per session 0.26 vs 0.59 (-55.4%, gap_vs_total_pts -31.5); mobile AOV 28.63 vs 44.85 (-36.2%, gap_vs_total_pts -45.9)."
+      },
+      {
+        "action": "Review the Android Iconic Crewneck Sweatshirt product page and purchase path",
+        "why": "The product has high views and adds but no purchases, and it is a top decliner.",
+        "owner": "Merchandising",
+        "priority": "high",
+        "evidence": "Android Iconic Crewneck Sweatshirt views_cur 1366, adds_to_cart_cur 486, purchase_lines_cur 0, view_to_purchase_pct 0, revenue_delta -616."
+      }
+    ],
+    "data_caveats": [
+      "Treat source and campaign breakdowns with caution: 24.4% of sessions rows are unknown or obfuscated, and session-level source is available for 73.5% of sessions.",
+      "<Other>, (data deleted), and (not set) are obfuscated placeholders; do not act on them.",
+      "This is Google's public obfuscated GA4 sample, not a real client."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": true,
+      "numbers_checked": 74,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 74,
+  "latency_s": 158.5,
+  "prompt_tokens": 6280,
+  "completion_tokens": 7897
+}

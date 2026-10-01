@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketing brief, week of {{ run.week_start }}</title>
+<link rel="stylesheet" href="{{ fonts_url }}">
+<style>
+:root { --navy:{{ c.navy }}; --teal:{{ c.teal }}; --teal-ink:{{ c.teal_ink }}; --sky:{{ c.sky }};
+        --beige:{{ c.beige }}; --white:{{ c.white }}; --rule:{{ c.rule }};
+        --serif:{{ stack_heading | safe }}; --sans:{{ stack_body | safe }}; --script:{{ stack_script | safe }}; }
+* { box-sizing:border-box; }
+@page { size:A4; margin:14mm 14mm 16mm; background:var(--beige); }
+body { margin:0; background:var(--beige); color:var(--navy);
+       font-family:var(--sans); font-size:10.5pt; line-height:1.6; -webkit-font-smoothing:antialiased; }
+.page { max-width:780px; margin:0 auto; padding:28px 24px 36px; }
+.masthead { display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+            border-bottom:1px solid var(--rule); padding-bottom:10px; margin-bottom:22px; }
+.mark { font-family:var(--script); font-size:26pt; line-height:1; color:var(--navy); }
+.meta { color:var(--teal-ink); font-size:9.5pt; text-align:right; margin:0; }
+h1, h2 { font-family:var(--serif); font-weight:500; line-height:1.15; margin:0; }
+h1 { font-size:22pt; max-width:28ch; margin-bottom:8px; }
+h2 { font-size:13.5pt; margin:24px 0 8px; padding-bottom:5px; border-bottom:1px solid var(--rule); }
+p, li { max-width:70ch; }
+p { margin:0 0 0.8em; }
+ul { margin:0; padding-left:18px; }
+li { margin:0 0 4px; }
+table { width:100%; border-collapse:collapse; font-size:9.8pt; }
+th { text-align:left; font-weight:700; color:var(--teal-ink); padding:6px 8px 6px 0; border-bottom:1.5px solid var(--navy); }
+td { padding:6px 8px 6px 0; border-bottom:1px solid var(--rule); vertical-align:top; }
+.num { text-align:right; white-space:nowrap; }
+.prev { color:var(--teal); }
+.down { color:var(--navy); font-weight:700; }
+.up { color:var(--teal); font-weight:700; }
+.chart { margin:14px 0 2px; }
+.chart-note { font-size:9pt; color:var(--teal-ink); margin:4px 0 0; }
+.pill { display:inline-block; font-size:8.5pt; font-weight:700; padding:1px 10px; border-radius:999px; margin-right:6px; }
+.sev-critical { background:var(--navy); color:var(--white); }
+.sev-warning { background:var(--teal); color:var(--white); }
+.sev-watch { background:var(--sky); color:var(--navy); }
+.sev-positive { background:var(--white); color:var(--teal-ink); border:1px solid var(--teal); }
+.change { margin:0 0 10px; }
+.change b { font-family:var(--serif); font-weight:500; font-size:11pt; }
+.prio { font-weight:700; }
+.prio-high { color:var(--navy); } .prio-medium { color:var(--teal); } .prio-low { color:var(--teal-ink); }
+.evidence { color:var(--teal-ink); font-size:9.3pt; }
+.trust { margin-top:28px; padding:16px 18px; background:var(--navy); color:var(--white); border-radius:4px; font-size:9.3pt; }
+.trust b { font-family:var(--serif); font-weight:500; font-size:11pt; color:var(--sky); }
+.fallback { color:var(--sky); font-weight:700; }
+@media (max-width:600px) { h1 { font-size:18pt; } .hide-sm { display:none; } .meta { text-align:left; } .masthead { display:block; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="masthead">
+    <span class="mark">Marketing brief</span>
+    <p class="meta">Week of {{ run.week_start }} to {{ run.week_end }}<br>
+       Compared with the week of {{ run.previous_week_start }}{% if calendar %}<br>{{ calendar }}{% endif %}</p>
+  </header>
+
+  <h1>{{ brief.headline }}</h1>
+
+  <h2>Summary</h2>
+  <ul>{% for s in brief.executive_summary %}<li>{{ s }}</li>{% endfor %}</ul>
+
+  <h2>This week in numbers</h2>
+  <table>
+    <tr><th>Metric</th><th class="num">This week</th><th class="num">Previous</th><th class="num">Change</th></tr>
+    {% for row in kpi_rows %}
+    <tr><td>{{ row.label }}</td><td class="num">{{ row.current }}</td>
+        <td class="num prev">{{ row.previous }}</td>
+        <td class="num {{ row.dir }}">{{ row.change }}</td></tr>
+    {% endfor %}
+  </table>
+
+  {% if bars %}
+  <div class="chart" role="img" aria-label="Weekly revenue across the replay, this week highlighted">
+    <svg viewBox="0 0 {{ chart_w }} 74" width="100%" height="74" preserveAspectRatio="none">
+      <line x1="0" y1="73.5" x2="{{ chart_w }}" y2="73.5" stroke="{{ c.rule }}" stroke-width="1"></line>
+      {% for b in bars %}
+      <rect x="{{ b.x }}" y="{{ b.y }}" width="{{ b.w }}" height="{{ b.h }}"
+            fill="{{ c.navy if b.current else c.sky }}"></rect>
+      {% endfor %}
+    </svg>
+  </div>
+  <p class="chart-note">Weekly revenue across the replay. This week in navy.</p>
+  {% endif %}
+
+  <h2>What changed</h2>
+  {% for ch in brief.what_changed %}
+  <p class="change"><span class="pill sev-{{ ch.severity }}">{{ ch.severity | capitalize }}</span><b>{{ ch.title }}.</b> {{ ch.detail }}</p>
+  {% endfor %}
+
+  {% if brief.likely_drivers %}
+  <h2>Likely drivers</h2>
+  <ul>{% for d in brief.likely_drivers %}<li>{{ d }}</li>{% endfor %}</ul>
+  {% endif %}
+
+  {% if brief.risks %}
+  <h2>Risks if nobody acts</h2>
+  <ul>{% for r in brief.risks %}<li>{{ r }}</li>{% endfor %}</ul>
+  {% endif %}
+
+  <h2>Actions</h2>
+  <table>
+    <tr><th>Priority</th><th>Action</th><th class="hide-sm">Owner</th></tr>
+    {% for a in brief.actions %}
+    <tr><td class="prio prio-{{ a.priority }}">{{ a.priority | capitalize }}</td>
+        <td>{{ a.action }}<br><span class="evidence">{{ a.why }} Evidence: {{ a.evidence }}</span></td>
+        <td class="hide-sm">{{ a.owner }}</td></tr>
+    {% endfor %}
+  </table>
+
+  {% if caveats %}
+  <h2>Data caveats</h2>
+  <ul>{% for cv in caveats %}<li>{{ cv }}</li>{% endfor %}</ul>
+  {% endif %}
+
+  <div class="trust">
+    <b>How this brief was made</b><br>
+    Every number was calculated in SQL and Python from GA4 event data.
+    {% if status == "validated" %}
+    The written analysis was produced by {{ model }} and checked by the number validator:
+    {{ numbers_checked }} numbers checked, none invented{% if attempts > 1 %}, passed on attempt {{ attempts }}{% endif %}.
+    {% else %}
+    <span class="fallback">The AI draft did not pass validation, so this brief uses the deterministic fallback.</span>
+    {% endif %}
+    Source: {{ run.data_source }}. {{ run.note }}
+  </div>
+</main>
+</body>
+</html>

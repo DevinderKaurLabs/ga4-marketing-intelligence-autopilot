@@ -1,0 +1,98 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "Revenue fell 10.3% to 43042 while sessions rose 11.9% to 31088, and the biggest funnel leak was Add to cart -> checkout.",
+    "executive_summary": [
+      "Total revenue was 43042, down 10.3% from 47973.",
+      "Sessions were 31088, up 11.9%, and conversion rate was 1.9, up 2.4%.",
+      "Cart to checkout rate was 54.18, down 47.3% from 102.82.",
+      "Product view to cart rate was 33.65, up 76.1%, but the figure must be verified before acting."
+    ],
+    "what_changed": [
+      {
+        "title": "Total revenue declined while traffic increased",
+        "detail": "Revenue was 43042, down 10.3% from 47973. Sessions were 31088, up 11.9% from 27780. Revenue per session was 1.38, down 19.8% from 1.73.",
+        "severity": "warning"
+      },
+      {
+        "title": "Product view to cart rate rose, but tracking must be verified",
+        "detail": "Product view to cart rate was 33.65, up 76.1% from 19.11. check_tracking is true, so the figure must be verified before acting.",
+        "severity": "watch"
+      },
+      {
+        "title": "Cart to checkout step weakened",
+        "detail": "Cart to checkout rate was 54.18, down 47.3% from 102.82. The anomaly has segment_revenue_delta -4931.",
+        "severity": "critical"
+      },
+      {
+        "title": "Organic revenue per session underperformed total",
+        "detail": "(organic) campaign revenue per session was 1.23, down 36.6% from 1.94. gap_vs_total_pts was -16.7.",
+        "severity": "warning"
+      },
+      {
+        "title": "Canada revenue moved differently from total",
+        "detail": "Canada revenue was 4561, up 53.7% from 2968. gap_vs_total_pts was 64.",
+        "severity": "positive"
+      }
+    ],
+    "likely_drivers": [
+      "The previous week included US Thanksgiving and Black Friday, while this week included Cyber Monday, so the revenue decline is likely consistent with post-Black Friday seasonality.",
+      "The funnel shows the main change in Add to cart -> checkout, so the revenue decline is likely consistent with a checkout-step issue rather than a traffic issue.",
+      "Organic revenue per session moved more negatively than total, so the organic mix is likely consistent with lower revenue per session."
+    ],
+    "risks": [
+      "If the Add to cart -> checkout leak is not addressed, the total anomaly has segment_revenue_delta -4931.",
+      "If product view to cart tracking is not verified, actions may be based on a figure that is not a demand story.",
+      "If organic revenue per session is not reviewed, the gap_vs_total_pts of -16.7 remains a watch item."
+    ],
+    "actions": [
+      {
+        "action": "Verify the flagged product view to cart tracking figures before using them for decisions.",
+        "why": "The flagged figures are not a demand story and must be verified before acting.",
+        "owner": "Analytics & tracking",
+        "priority": "high",
+        "evidence": "Product view to cart rate was 33.65, up 76.1% from 19.11, and check_tracking is true."
+      },
+      {
+        "action": "Review the Add to cart -> checkout step and test checkout fixes.",
+        "why": "The funnel's biggest leak is Add to cart -> checkout, and the total cart to checkout rate fell sharply.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "Cart to checkout rate was 54.18, down 47.3% from 102.82, with segment_revenue_delta -4931."
+      },
+      {
+        "action": "Review organic landing pages and product relevance for organic sessions.",
+        "why": "Organic revenue per session moved more negatively than total, so organic content or product fit may need review.",
+        "owner": "SEO & content",
+        "priority": "medium",
+        "evidence": "(organic) campaign revenue per session was 1.23, down 36.6% from 1.94, with gap_vs_total_pts -16.7."
+      }
+    ],
+    "data_caveats": [
+      "Product view to cart rate figures with check_tracking true are not a demand story and must be verified before acting.",
+      "Treat source breakdowns with caution: 24.4% of sessions rows are unknown or obfuscated, and session-level source is available for 73.5% of sessions.",
+      "Do not recommend actions on <Other>, (data deleted), or (not set).",
+      "This is Google's public obfuscated GA4 sample, not a real client."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": false,
+      "error": "the model used its whole length budget before answering (empty reply)",
+      "invalid": [],
+      "raw_reply": "__EMPTY_OUT_OF_TOKENS__"
+    },
+    {
+      "attempt": 2,
+      "ok_json": true,
+      "numbers_checked": 55,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 55,
+  "latency_s": 369.1,
+  "prompt_tokens": 12528,
+  "completion_tokens": 15123
+}

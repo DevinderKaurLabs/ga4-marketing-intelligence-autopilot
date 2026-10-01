@@ -1,0 +1,97 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "Total revenue fell to 14716 from 47276, a -68.9% change.",
+    "executive_summary": [
+      "Revenue, transactions, sessions, and conversion rate all declined week over week.",
+      "The week included Christmas Eve, Christmas Day, and Boxing Day, which likely contributed to lower demand.",
+      "Revenue per session is flagged for tracking verification before it is used for decisions."
+    ],
+    "what_changed": [
+      {
+        "title": "Total revenue decline",
+        "detail": "Revenue current 14716 previous 47276 change_pct -68.9.",
+        "severity": "critical"
+      },
+      {
+        "title": "Total transactions decline",
+        "detail": "Transactions current 257 previous 685 change_pct -62.5.",
+        "severity": "critical"
+      },
+      {
+        "title": "Conversion rate decline",
+        "detail": "Conversion rate current 1.06 previous 1.64 change_pct -35.8 change_points -0.59.",
+        "severity": "critical"
+      },
+      {
+        "title": "Sessions decline",
+        "detail": "Sessions current 22083 previous 33411 change_pct -33.9.",
+        "severity": "critical"
+      },
+      {
+        "title": "Canada revenue moved differently from total",
+        "detail": "Canada revenue current 2086 previous 4409 change_pct -52.7 gap_vs_total_pts 16.2.",
+        "severity": "warning"
+      }
+    ],
+    "likely_drivers": [
+      "The calendar events Christmas Eve, Christmas Day, and Boxing Day are likely consistent with lower sessions, transactions, and revenue.",
+      "The Product view -> add to cart step fell from 29.57 to 23.94, likely reducing the number of carts created.",
+      "High-interest low-conversion products show high views and adds but 0 purchase lines, likely indicating product-page or checkout friction."
+    ],
+    "risks": [
+      "If revenue per session tracking is not verified, decisions may be based on an unreliable figure.",
+      "If the product-to-cart leak is not addressed, fewer sessions will become transactions.",
+      "If at-risk high-value customers are not prioritized, returning revenue may remain weak."
+    ],
+    "actions": [
+      {
+        "action": "Verify revenue per session tracking and attribution before using the metric in marketing decisions.",
+        "why": "The revenue per session anomaly is flagged for tracking verification.",
+        "owner": "Analytics & tracking",
+        "priority": "high",
+        "evidence": "Revenue per session current 0.67 previous 1.41 change_pct -52.9 check_tracking true."
+      },
+      {
+        "action": "Run a CRO test on the Google Eco Tee Black product detail page to improve add-to-cart and purchase completion.",
+        "why": "The biggest funnel leak is Product view -> add to cart, and this high-interest product has adds but no purchases.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "Product view -> add to cart current 23.94 previous 29.57 change_pct -19; Google Eco Tee Black views_cur 2711 adds_to_cart_cur 1063 purchase_lines_cur 0."
+      },
+      {
+        "action": "Create a CRM win-back list for at-risk high-value customers and assign follow-up.",
+        "why": "At-risk high-value customers have high spend and have not purchased recently.",
+        "owner": "CRM & retention",
+        "priority": "medium",
+        "evidence": "At-risk high value customers 58 avg_spend 192.93 avg_recency_days 50.4."
+      }
+    ],
+    "data_caveats": [
+      "Revenue per session current 0.67 previous 1.41 change_pct -52.9 has check_tracking true and must be verified before acting.",
+      "Treat <Other> and (data deleted) as obfuscated placeholders, not real channels or campaigns.",
+      "Session-level source is available for 73.5% of sessions; 24.4% of sessions rows are unknown or obfuscated.",
+      "This is Google's public obfuscated GA4 sample, not a real client."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": false,
+      "error": "no JSON object found in the reply: {   \"headline\": \"Total revenue fell to 14716 from 47276,",
+      "invalid": [],
+      "raw_reply": "{\n  \"headline\": \"Total revenue fell to 14716 from 47276,"
+    },
+    {
+      "attempt": 2,
+      "ok_json": true,
+      "numbers_checked": 37,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 37,
+  "latency_s": 560.8,
+  "prompt_tokens": 11453,
+  "completion_tokens": 13976
+}

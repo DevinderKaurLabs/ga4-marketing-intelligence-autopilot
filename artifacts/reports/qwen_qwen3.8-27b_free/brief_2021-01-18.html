@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marketing brief, week of 2021-01-18</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pinyon+Script&amp;family=Playfair+Display:wght@400;500;600&amp;family=PT+Serif:wght@400;700&amp;display=swap">
+<style>
+:root { --navy:#2F4156; --teal:#567C8D; --teal-ink:#44697A; --sky:#C8D9E6;
+        --beige:#F5EFEB; --white:#FFFFFF; --rule:#DCD3CC;
+        --serif:"Playfair Display", Georgia, "Times New Roman", serif; --sans:"PT Serif", Georgia, "Times New Roman", serif; --script:"Pinyon Script", "Brush Script MT", cursive; }
+* { box-sizing:border-box; }
+@page { size:A4; margin:14mm 14mm 16mm; background:var(--beige); }
+body { margin:0; background:var(--beige); color:var(--navy);
+       font-family:var(--sans); font-size:10.5pt; line-height:1.6; -webkit-font-smoothing:antialiased; }
+.page { max-width:780px; margin:0 auto; padding:28px 24px 36px; }
+.masthead { display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+            border-bottom:1px solid var(--rule); padding-bottom:10px; margin-bottom:22px; }
+.mark { font-family:var(--script); font-size:26pt; line-height:1; color:var(--navy); }
+.meta { color:var(--teal-ink); font-size:9.5pt; text-align:right; margin:0; }
+h1, h2 { font-family:var(--serif); font-weight:500; line-height:1.15; margin:0; }
+h1 { font-size:22pt; max-width:28ch; margin-bottom:8px; }
+h2 { font-size:13.5pt; margin:24px 0 8px; padding-bottom:5px; border-bottom:1px solid var(--rule); }
+p, li { max-width:70ch; }
+p { margin:0 0 0.8em; }
+ul { margin:0; padding-left:18px; }
+li { margin:0 0 4px; }
+table { width:100%; border-collapse:collapse; font-size:9.8pt; }
+th { text-align:left; font-weight:700; color:var(--teal-ink); padding:6px 8px 6px 0; border-bottom:1.5px solid var(--navy); }
+td { padding:6px 8px 6px 0; border-bottom:1px solid var(--rule); vertical-align:top; }
+.num { text-align:right; white-space:nowrap; }
+.prev { color:var(--teal); }
+.down { color:var(--navy); font-weight:700; }
+.up { color:var(--teal); font-weight:700; }
+.chart { margin:14px 0 2px; }
+.chart-note { font-size:9pt; color:var(--teal-ink); margin:4px 0 0; }
+.pill { display:inline-block; font-size:8.5pt; font-weight:700; padding:1px 10px; border-radius:999px; margin-right:6px; }
+.sev-critical { background:var(--navy); color:var(--white); }
+.sev-warning { background:var(--teal); color:var(--white); }
+.sev-watch { background:var(--sky); color:var(--navy); }
+.sev-positive { background:var(--white); color:var(--teal-ink); border:1px solid var(--teal); }
+.change { margin:0 0 10px; }
+.change b { font-family:var(--serif); font-weight:500; font-size:11pt; }
+.prio { font-weight:700; }
+.prio-high { color:var(--navy); } .prio-medium { color:var(--teal); } .prio-low { color:var(--teal-ink); }
+.evidence { color:var(--teal-ink); font-size:9.3pt; }
+.trust { margin-top:28px; padding:16px 18px; background:var(--navy); color:var(--white); border-radius:4px; font-size:9.3pt; }
+.trust b { font-family:var(--serif); font-weight:500; font-size:11pt; color:var(--sky); }
+.fallback { color:var(--sky); font-weight:700; }
+@media (max-width:600px) { h1 { font-size:18pt; } .hide-sm { display:none; } .meta { text-align:left; } .masthead { display:block; } }
+</style>
+</head>
+<body>
+<main class="page">
+  <header class="masthead">
+    <span class="mark">Marketing brief</span>
+    <p class="meta">Week of 2021-01-18 to 2021-01-24<br>
+       Compared with the week of 2021-01-11</p>
+  </header>
+
+  <h1>In Google&#39;s public GA4 sample, total revenue rose from 13150 to 26966 while sessions fell from 27707 to 27478, and the conversion spike must be verified before acting.</h1>
+
+  <h2>Summary</h2>
+  <ul><li>This brief uses Google&#39;s public obfuscated GA4 sample, not a real client.</li><li>Total revenue changed 105.1% and total transactions changed 58.1%, while total sessions changed -0.8%.</li><li>Total conversion rate changed from 0.82 to 1.36, but the payload flags conversion rate and revenue per session for tracking verification.</li><li>Referral campaign revenue was 16252 with a 175.6% change, while direct campaign revenue was 1033 with a -38.6% change.</li></ul>
+
+  <h2>This week in numbers</h2>
+  <table>
+    <tr><th>Metric</th><th class="num">This week</th><th class="num">Previous</th><th class="num">Change</th></tr>
+    
+    <tr><td>Revenue</td><td class="num">$26,966</td>
+        <td class="num prev">$13,150</td>
+        <td class="num up">+105.1%</td></tr>
+    
+    <tr><td>Transactions</td><td class="num">400</td>
+        <td class="num prev">253</td>
+        <td class="num up">+58.1%</td></tr>
+    
+    <tr><td>Sessions</td><td class="num">27,478</td>
+        <td class="num prev">27,707</td>
+        <td class="num down">-0.8%</td></tr>
+    
+    <tr><td>Conversion rate</td><td class="num">1.36%</td>
+        <td class="num prev">0.82%</td>
+        <td class="num up">+66.6%</td></tr>
+    
+    <tr><td>Average order value</td><td class="num">$67.42</td>
+        <td class="num prev">$51.98</td>
+        <td class="num up">+29.7%</td></tr>
+    
+    <tr><td>Revenue per session</td><td class="num">$0.98</td>
+        <td class="num prev">$0.47</td>
+        <td class="num up">+106.8%</td></tr>
+    
+    <tr><td>Engagement rate</td><td class="num">93.69%</td>
+        <td class="num prev">93.83%</td>
+        <td class="num down">-0.1%</td></tr>
+    
+  </table>
+
+  
+  <div class="chart" role="img" aria-label="Weekly revenue across the replay, this week highlighted">
+    <svg viewBox="0 0 620 74" width="100%" height="74" preserveAspectRatio="none">
+      <line x1="0" y1="73.5" x2="620" y2="73.5" stroke="#DCD3CC" stroke-width="1"></line>
+      
+      <rect x="0.0" y="46.2" width="46.2" height="27.8"
+            fill="#C8D9E6"></rect>
+      
+      <rect x="52.2" y="29.4" width="46.2" height="44.6"
+            fill="#C8D9E6"></rect>
+      
+      <rect x="104.3" y="17.8" width="46.2" height="56.2"
+            fill="#C8D9E6"></rect>
+      
+      <rect x="156.5" y="23.5" width="46.2" height="50.5"
+            fill="#C8D9E6"></rect>
+      
+      <rect x="208.7" y="4.0" width="46.2" height="70.0"
+            fill="#C8D9E6"></rect>
+      
+      <rect x="260.8" y="18.6" width="46.2" height="55.4"
+            fill="#C8D9E6"></rect>
+      
+      <rect x="313.0" y="56.8" width="46.2" height="17.2"
+            fill="#C8D9E6"></rect>
+      
+      <rect x="365.2" y="61.8" width="46.2" height="12.2"
+            fill="#C8D9E6"></rect>
+      
+      <rect x="417.3" y="63.0" width="46.2" height="11.0"
+            fill="#C8D9E6"></rect>
+      
+      <rect x="469.5" y="58.6" width="46.2" height="15.4"
+            fill="#C8D9E6"></rect>
+      
+      <rect x="521.7" y="42.4" width="46.2" height="31.6"
+            fill="#2F4156"></rect>
+      
+      <rect x="573.8" y="67.9" width="46.2" height="6.1"
+            fill="#C8D9E6"></rect>
+      
+    </svg>
+  </div>
+  <p class="chart-note">Weekly revenue across the replay. This week in navy.</p>
+  
+
+  <h2>What changed</h2>
+  
+  <p class="change"><span class="pill sev-positive">Positive</span><b>Total revenue and transactions rose.</b> Revenue was 26966 versus 13150, a 105.1% change; transactions were 400 versus 253, a 58.1% change; sessions were 27478 versus 27707, a -0.8% change.</p>
+  
+  <p class="change"><span class="pill sev-warning">Warning</span><b>Product view to add to cart weakened.</b> Product view -&gt; add to cart was 18.63 versus 22.45, a -17% change and -3.82 points; the payload lists it as the biggest leak.</p>
+  
+  <p class="change"><span class="pill sev-watch">Watch</span><b>Direct traffic and revenue fell.</b> Direct campaign users were 3596 versus 5040, a -28.7% change; direct campaign sessions were 3724 versus 5173, a -28% change; direct campaign revenue was 1033 with a -38.6% change.</p>
+  
+  <p class="change"><span class="pill sev-positive">Positive</span><b>Referral campaign performance improved.</b> Referral campaign revenue was 16252 with a 175.6% change; transactions were 246 with a 110.3% change; conversion rate was 3 with an 87.8% change.</p>
+  
+
+  
+  <h2>Likely drivers</h2>
+  <ul><li>The revenue increase is likely consistent with stronger referral campaign performance, because referral campaign revenue was 16252 and changed 175.6%.</li><li>The revenue increase is likely consistent with a higher cart to checkout rate, which rose from 42.15 to 56.62, a 34.3% change.</li><li>The direct traffic decline is likely consistent with direct campaign sessions falling from 5173 to 3724, a -28% change.</li></ul>
+  
+
+  
+  <h2>Risks if nobody acts</h2>
+  <ul><li>If the conversion rate and revenue per session spikes are tracking errors, the team may make decisions on inflated performance.</li><li>If product view -&gt; add to cart remains the biggest leak, product interest may not become carts.</li><li>If direct traffic continues to fall, the sample may become more dependent on referral traffic.</li></ul>
+  
+
+  <h2>Actions</h2>
+  <table>
+    <tr><th>Priority</th><th>Action</th><th class="hide-sm">Owner</th></tr>
+    
+    <tr><td class="prio prio-high">High</td>
+        <td>Verify GA4 purchase, revenue, and conversion tracking before using the conversion rate or revenue per session figures in planning.<br><span class="evidence">The payload marks these figures for tracking verification, so they are not a demand story until confirmed. Evidence: revenue_per_session current 0.98 previous 0.47 change_pct 106.8 check_tracking true; conversion_rate current 1.36 previous 0.82 change_pct 66.6 check_tracking true</span></td>
+        <td class="hide-sm">Analytics &amp; tracking</td></tr>
+    
+    <tr><td class="prio prio-high">High</td>
+        <td>Run one add-to-cart test on top product detail pages, starting with Google Cloud Unisex Zip Hoodie and Google Women&#39;s Striped L/S.<br><span class="evidence">The funnel shows the biggest leak at product view -&gt; add to cart, and these items have high views and adds to cart. Evidence: Product view -&gt; add to cart current 18.63 previous 22.45 change_pct -17 change_points -3.82; Google Cloud Unisex Zip Hoodie views_cur 3186 adds_to_cart_cur 670; Google Women&#39;s Striped L/S views_cur 3267 adds_to_cart_cur 739</span></td>
+        <td class="hide-sm">E-commerce &amp; CRO</td></tr>
+    
+    <tr><td class="prio prio-medium">Medium</td>
+        <td>Create a reactivation test for at-risk high value customers.<br><span class="evidence">The at-risk high value segment grew and has high historical spend, so a targeted CRM test can check whether it can be recovered. Evidence: at_risk_high_value customers 470 previous 272 change 198; revenue_to_date 96564; avg_recency_days 62.6</span></td>
+        <td class="hide-sm">CRM &amp; retention</td></tr>
+    
+  </table>
+
+  
+  <h2>Data caveats</h2>
+  <ul><li>Revenue per session and conversion rate have check_tracking true, so both figures must be verified before acting.</li><li>Source breakdowns should be treated with caution because 24.4% of sessions rows are unknown or obfuscated.</li><li>Calendar events are empty, so seasonality cannot be explained from the payload.</li><li>The data is Google&#39;s public obfuscated GA4 sample, not a real client.</li><li>Session-level source is available for 73.5% of sessions; the rest use the user&#39;s first-touch source.</li></ul>
+  
+
+  <div class="trust">
+    <b>How this brief was made</b><br>
+    Every number was calculated in SQL and Python from GA4 event data.
+    
+    The written analysis was produced by qwen/qwen3.8-27b:free and checked by the number validator:
+    67 numbers checked, none invented, passed on attempt 3.
+    
+    Source: bigquery-public-data.ga4_obfuscated_sample_ecommerce. Public obfuscated GA4 sample (Google Merchandise Store). Architecture demonstration.
+  </div>
+</main>
+</body>
+</html>

@@ -67,6 +67,35 @@ per segment. Business-wide rate or order-value moves of 50%+ are marked "check t
 
 Offline test (no BigQuery needed): `python tests/test_engine.py`
 
+## AI layer
+
+Run it end to end in Colab with `GA4_Autopilot_AI_Brief_Run.ipynb` (free NVIDIA Build key for Mistral, Qwen and Nemotron, or a free Gemini key; no GPU needed).
+
+```
+payload.json -> prompt (rules) -> LLM (Mistral / Qwen / Nemotron via NVIDIA Build free tier; Gemini, OpenRouter, fal or local Ollama by setting)
+             -> JSON schema check -> number validator -> retry with the exact invented numbers
+             -> after 3 failed attempts: deterministic fallback brief (no AI text)
+             -> HTML/PDF brief -> email -> audit trail in intelligence.db (insights table)
+```
+
+- **Number validator** (`src/mia/validator.py`): extracts every number the model writes and checks it
+  against the payload (rounding allowed, dates ignored). Ratios like "3.2x" or invented targets are
+  rejected and sent back to the model.
+- **Rules the model must follow** (`src/mia/prompts.py`): no new calculations, "check tracking" items
+  are data questions not demand stories, seasonality only from the retail calendar, no actions on
+  obfuscated placeholders, max 3 actions each with owner, priority and evidence.
+- **Model evaluation** (`scripts/evaluate_models.py`): same payloads and prompt for each model, scored
+  on invented numbers, fallbacks, tracking flags respected, placeholder actions, calendar use,
+  latency and tokens. Output: `artifacts/eval/model_eval.md`.
+
+```bash
+python scripts/list_models.py                                   # current Mistral/Qwen IDs + prices
+python scripts/evaluate_models.py --models "$MODEL_A" "$MODEL_B"
+python scripts/generate_briefs.py --model "$MODEL_PRIMARY" --weeks all --pdf
+python scripts/send_brief.py --to you@example.com --week 2020-12-21
+python tests/test_ai_layer.py                                   # offline, fake LLM, real payload
+```
+
 ## Analytics layer
 
 | Table | Grain | Purpose |
@@ -78,9 +107,33 @@ Offline test (no BigQuery needed): `python tests/test_engine.py`
 | `mart_product_daily` | day x product | Product funnel and revenue |
 | `dq_field_completeness` | field | Data quality notes for every report |
 
+## Dashboard and manager assistant
+
+`app/streamlit_app.py` reads the saved pipeline outputs (no BigQuery at runtime, no cloud credentials
+on the server). Views: Overview, Acquisition, Customers, Products, Signals & history, Weekly brief
+(with the model evaluation), and **Ask the data**: a manager assistant that plans calls to seven
+read-only data tools, answers from their results, and passes the same number validator as the brief.
+If it cannot produce a verifiable answer it shows the retrieved data instead.
+
+Deploy free on Streamlit Community Cloud: main file `app/streamlit_app.py`, secrets `LLM_PROVIDER`,
+`LLM_API_KEY` and optionally `APP_PASSCODE` (protects the assistant's free model credits).
+
+```bash
+streamlit run app/streamlit_app.py
+python tests/test_app.py        # builds synthetic outputs, opens every view, tests the assistant
+```
+
+## Visual identity
+
+All documents and charts share one theme (`src/mia/theme.py`, `.streamlit/config.toml`), matching
+[devinder-kaur.vercel.app](https://devinder-kaur.vercel.app): navy `#2F4156`, teal `#567C8D`,
+teal-ink `#44697A`, sky `#C8D9E6`, beige `#F5EFEB`, white, rule `#DCD3CC`; Playfair Display for
+headings, PT Serif for body, Pinyon Script for the masthead. Charts follow one rule: the data point
+that matters in navy, context in sky, comparison in teal.
+
 ## Roadmap
 
 - [x] Mon: BigQuery layer + data dictionary
 - [x] Tue: intelligence engine + anomalies + replay mode + run history
-- [ ] Wed: AI layer + validator + Mistral vs Qwen eval + executive brief + email
-- [ ] Thu: Streamlit dashboard + manager AI assistant + deploy
+- [x] AI layer + validator + Mistral vs Qwen eval + executive brief + email
+- [x] Streamlit dashboard + manager AI assistant (deploy on Streamlit Community Cloud)

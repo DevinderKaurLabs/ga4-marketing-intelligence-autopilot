@@ -1,0 +1,11 @@
+# Matches devinder-kaur.vercel.app
+[theme]
+base = "light"
+primaryColor = "#2F4156"
+backgroundColor = "#F5EFEB"
+secondaryBackgroundColor = "#FFFFFF"
+textColor = "#2F4156"
+borderColor = "#DCD3CC"
+linkColor = "#44697A"
+font = "PT Serif:https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap"
+headingFont = "Playfair Display:https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap"

@@ -1,0 +1,92 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "Revenue rose 38.8% to 59721, driven by a 28.4% increase in users and a 5% lift in conversion rate, while India outperformed and Canada lagged.",
+    "executive_summary": [
+      "Total revenue was 59721, up 38.8% from 43042; transactions were 865, up 34.3% from 644.",
+      "Sessions were 38729, up 24.6%; users were 31498, up 28.4%; conversion rate was 1.99, up 5% from 1.9.",
+      "India revenue was 7512, up 117.9%, with a gap_vs_total_pts of 79.1; Canada revenue was 4323, down 5.2%, with revenue per session at 1.47, down 21.2%.",
+      "Product view to add to cart remains the biggest funnel leak at 33.04, down 1.8% from 33.65."
+    ],
+    "what_changed": [
+      {
+        "title": "Total revenue and transactions increased",
+        "detail": "Revenue was 59721, up 38.8% from 43042; transactions were 865, up 34.3% from 644; users were 31498, up 28.4% from 24534.",
+        "severity": "positive"
+      },
+      {
+        "title": "India outperformed the total",
+        "detail": "India revenue was 7512, up 117.9% from 3448, with gap_vs_total_pts of 79.1; India revenue per session was 2.06, up 72.1% from 1.2, with gap_vs_total_pts of 60.7.",
+        "severity": "positive"
+      },
+      {
+        "title": "Canada lagged the total",
+        "detail": "Canada revenue was 4323, down 5.2% from 4561, while sessions were up 20.3%; Canada revenue per session was 1.47, down 21.2% from 1.87, with gap_vs_total_pts of -32.6.",
+        "severity": "warning"
+      },
+      {
+        "title": "Checkout improved but product-to-cart remains the biggest leak",
+        "detail": "Product view to add to cart was 33.04, down 1.8% from 33.65; add to cart to checkout was 58.25, up 7.5%; checkout to purchase was 48.8, up 17.4%.",
+        "severity": "watch"
+      }
+    ],
+    "likely_drivers": [
+      "No calendar event is listed for this week; the previous week included Cyber Monday, so the increase is likely not a listed-event spike.",
+      "India revenue and revenue per session moved far above the total, consistent with a country-specific demand increase.",
+      "Canada sessions rose 20.3% but revenue fell 5.2%, consistent with weaker monetization in that segment."
+    ],
+    "risks": [
+      "If Canada revenue per session stays at 1.47 while the total is 1.54, Canada could continue to drag total growth.",
+      "If the product view to add to cart step stays at 33.04, additional traffic may not convert into carts.",
+      "Source and campaign data quality issues could lead to decisions based on incomplete channel attribution."
+    ],
+    "actions": [
+      {
+        "action": "Investigate and document what is driving the India revenue increase, then assess whether the same levers can be applied to other underperforming markets.",
+        "why": "India revenue was 7512, up 117.9% from 3448, with gap_vs_total_pts of 79.1, far above the total 38.8% increase.",
+        "owner": "Performance marketing",
+        "priority": "high",
+        "evidence": "India revenue 7512 vs 3448, change_pct 117.9, gap_vs_total_pts 79.1; India revenue_per_session 2.06 vs 1.2, change_pct 72.1, gap_vs_total_pts 60.7"
+      },
+      {
+        "action": "Review Canada product pages and checkout flow to identify why sessions up 20.3% did not translate into revenue growth.",
+        "why": "Canada revenue was 4323, down 5.2% from 4561, while sessions were up 20.3%; revenue per session was 1.47, down 21.2% from 1.87, with gap_vs_total_pts of -32.6.",
+        "owner": "E-commerce & CRO",
+        "priority": "medium",
+        "evidence": "Canada revenue 4323 vs 4561, change_pct -5.2; sessions_change_pct 20.3; revenue_per_session 1.47 vs 1.87, change_pct -21.2, gap_vs_total_pts -32.6"
+      },
+      {
+        "action": "Run a CRO test on the product view to add to cart step, which is the biggest funnel leak.",
+        "why": "Product view to add to cart was 33.04, down 1.8% from 33.65, and is flagged as the biggest leak in the funnel.",
+        "owner": "E-commerce & CRO",
+        "priority": "medium",
+        "evidence": "Product view to add to cart 33.04 vs 33.65, change_pct -1.8, change_points -0.62; flagged as biggest_leak"
+      }
+    ],
+    "data_caveats": [
+      "This is Google's public obfuscated GA4 sample dataset (Google Merchandise Store), not a real client.",
+      "Session-level source is available for only 73.5% of sessions; 24.4% of source rows are unknown or obfuscated. Treat source breakdowns with caution.",
+      "Channels and campaigns include obfuscated placeholders such as <Other> and (data deleted); no actions should be taken on those segments."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": false,
+      "error": "Expecting ',' delimiter: line 29 column 6 (char 1735)",
+      "invalid": [],
+      "raw_reply": "{\n  \"headline\": \"Revenue rose 38.8% to 59721, with users up 28.4% and conversion rate up 5%, while India outperformed and Canada lagged.\",\n  \"executive_summary\": [\n    \"Total revenue was 59721, up 38.8% from 43042, and transactions were 865, up 34.3% from 644.\",\n    \"Sessions were 38729, up 24.6%, and users were 31498, up 28.4%, with conversion rate at 1.99, up 5% from 1.9.\",\n    \"India revenue wa"
+    },
+    {
+      "attempt": 2,
+      "ok_json": true,
+      "numbers_checked": 103,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 103,
+  "latency_s": 201.7,
+  "prompt_tokens": 12473,
+  "completion_tokens": 12076
+}

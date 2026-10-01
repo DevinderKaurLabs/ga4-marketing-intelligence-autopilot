@@ -1,0 +1,93 @@
+{
+  "status": "validated",
+  "model": "qwen/qwen3.8-27b:free",
+  "brief": {
+    "headline": "Traffic and users rose sharply, but revenue fell 9.3% to 9,402 as conversion and AOV declined.",
+    "executive_summary": [
+      "Sessions rose 42% to 29,029 and users rose 37.7% to 24,710.",
+      "Revenue fell 9.3% to 9,402 while transactions rose 3% to 170.",
+      "Conversion rate fell from 0.68 to 0.56 and AOV fell from 62.84 to 55.31.",
+      "The previous week included New Year's Eve and New Year's Day, so part of the week-over-week move may be calendar timing."
+    ],
+    "what_changed": [
+      {
+        "title": "Traffic up, revenue down",
+        "detail": "Sessions rose 42% to 29,029, but revenue fell 9.3% to 9,402 and revenue per session fell from 0.51 to 0.32.",
+        "severity": "warning"
+      },
+      {
+        "title": "Checkout step weakened",
+        "detail": "Checkout -> purchase fell from 52.87 to 46.96, a -11.2% change, and total conversion rate fell from 0.68 to 0.56.",
+        "severity": "warning"
+      },
+      {
+        "title": "US AOV fell sharply",
+        "detail": "United States AOV fell from 79.96 to 47.32, -40.8%, with a -28.8 point gap versus total AOV.",
+        "severity": "warning"
+      },
+      {
+        "title": "Mobile revenue recovered",
+        "detail": "Mobile revenue rose 62% to 3,385 and mobile AOV rose from 28.63 to 54.6, a +102.7 point gap versus total AOV.",
+        "severity": "positive"
+      }
+    ],
+    "likely_drivers": [
+      "The previous week included New Year's Eve and New Year's Day, so the revenue and AOV decline may be calendar timing.",
+      "The total traffic_vs_revenue anomaly is consistent with sessions up 42% while revenue fell 9.3%.",
+      "The checkout-to-purchase step fell from 52.87 to 46.96, consistent with a checkout-stage issue.",
+      "United States AOV fell from 79.96 to 47.32, consistent with lower US order values."
+    ],
+    "risks": [
+      "If the checkout-to-purchase decline persists, higher sessions will not convert into revenue.",
+      "If US AOV weakness persists, total revenue will remain below the prior week.",
+      "If source attribution is not validated, channel decisions may rely on unreliable splits."
+    ],
+    "actions": [
+      {
+        "action": "Audit the final checkout step and run one test on desktop and US sessions.",
+        "why": "The biggest funnel leak is checkout to purchase, and desktop and US revenue fell while sessions rose.",
+        "owner": "E-commerce & CRO",
+        "priority": "high",
+        "evidence": "Checkout -> purchase: 46.96 vs 52.87, -11.2%; desktop revenue: 5,912 vs 7,948, -25.6%; United States revenue: 3,833 vs 5,437, -29.5%."
+      },
+      {
+        "action": "Validate source, campaign, and channel attribution before reallocating spend.",
+        "why": "A large share of session source fields is unusable, and channel splits include obfuscated placeholders.",
+        "owner": "Analytics & tracking",
+        "priority": "medium",
+        "evidence": "source unusable_pct: 24.4; session_level_source unusable_pct: 26.5; total sessions: 29,029."
+      },
+      {
+        "action": "Launch a win-back email flow for at-risk high-value customers.",
+        "why": "At-risk high-value customers increased and have high average spend.",
+        "owner": "CRM & retention",
+        "priority": "medium",
+        "evidence": "at_risk_high_value customers: 157 vs 120; avg_spend: 193.54; avg_recency_days: 58.8."
+      }
+    ],
+    "data_caveats": [
+      "This is Google's public obfuscated GA4 sample, not a real client.",
+      "Treat source and campaign breakdowns with caution: source unusable_pct is 24.4 and session_level_source unusable_pct is 26.5.",
+      "<Other>, (data deleted), and (not set) are obfuscated placeholders and should not be used for actions."
+    ]
+  },
+  "attempts": [
+    {
+      "attempt": 1,
+      "ok_json": false,
+      "error": "the model used its whole length budget before answering (empty reply)",
+      "invalid": [],
+      "raw_reply": "__EMPTY_OUT_OF_TOKENS__"
+    },
+    {
+      "attempt": 2,
+      "ok_json": true,
+      "numbers_checked": 58,
+      "invalid": []
+    }
+  ],
+  "numbers_checked": 58,
+  "latency_s": 299.3,
+  "prompt_tokens": 12708,
+  "completion_tokens": 15336
+}
